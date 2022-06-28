@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import axios from "axios"
 
 import './App.css';
+import NavBar from './components/navigation/NavBar';
+import TopBar from './components/topbar/TopBar';
 
 function App() {
 
-  const [testArr, setTestArr] = useState([]);
+  const [restaurantList, setRestaurantList] = useState([]);
 
   const API = process.env.REACT_APP_API_URL;
 
@@ -14,24 +16,17 @@ function App() {
     const fetchData = async () => {
       console.log("Fetching API");
       const res = await axios.get(`${API}/api/restaurants`);
-      setTestArr(res.data)
-      console.log("testData: ", testArr)
+      setRestaurantList(res.data)
       console.log("res is: ", res)
     };
     fetchData();
   }, []);
 
-  // const testingMap = testData.map((each) => {
-  //   <div>
-  //     <p>{each.name}</p>
-  //   </div>
-  // })
-
-  // console.log("outside :", testArr.restaurants)
-  // console.log(testData.restaurants[0].name)
   return (
-   <div>
-    {testArr.restaurants && testArr.restaurants.map((each) => {
+   <main>
+    <NavBar />
+    <TopBar />
+    {restaurantList.restaurants && restaurantList.restaurants.map((each) => {
       return (
         <div key={each.id}>
           <p>{each.name}</p>
@@ -41,7 +36,7 @@ function App() {
       )
     })}
 
-   </div>
+   </main>
   );
 }
 
