@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import {useEffect, useState } from 'react';
+import {useEffect} from 'react';
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -17,21 +17,17 @@ import { useNavigate } from "react-router-dom";
 export default function RestaurantsList({restaurantData, setRestaurantData}) {
 const API = process.env.REACT_APP_API_URL;
 
-const [tempList, setTempList] = useState([])
-
 useEffect(() => {
     const fetchData = async () => {
       console.log("Fetching API");
       const res = await axios.get(`${API}/api/restaurants`);
-      setRestaurantData(res.data)
-      setTempList(res.data)
+      setRestaurantData(res.data.restaurants)
       console.log("res is: ", res)
     };
     fetchData();
   }, []);
 
   const navigate = useNavigate()
-  console.log(tempList)
 
   const handleClick = () => {
     navigate("/restaurants")
@@ -77,7 +73,7 @@ useEffect(() => {
                 overflowY:"auto", 
                 width:'100%'
                 }}>
-            {tempList && tempList.restaurants.map((each, i) => {
+            {restaurantData && restaurantData.map((each, i) => {
                 return (
                     <Grid container spacing={3}>
                     <Grid item xs={2} xl={3}>
