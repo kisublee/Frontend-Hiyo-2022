@@ -10,14 +10,14 @@ import korean from "./media/korean.png"
 
 
 const imageOfRestaurants = [
-   {"mc": mc}, 
-   {"pizza": pizza}, 
-   {"japanese": japanese}, 
-   {"greek": greek}, 
-   {"french": french},
-   {"thai": thai},
-   {"mexican": mexican},
-   {"korean": korean},
+   {"image": mc}, 
+   {"image": pizza}, 
+   {"image": japanese}, 
+   {"image": greek}, 
+   {"image": french},
+   {"image": thai},
+   {"image": mexican},
+   {"image": korean},
 ]
 
-module.exports = imageOfRestaurants;
+export default imageOfRestaurants;
