@@ -8,9 +8,15 @@ import Button from '@mui/material/Button';
 
 export default function NavBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{flexGrow: 1}}>
       <AppBar position="static"  elevation={0}>
-        <Toolbar  sx={{backgroundColor:"white"}}>
+        <Toolbar 
+         sx={{
+            backgroundColor:"white",  
+            '&:hover': {
+            backgroundColor: '#FCADAA',
+                }
+             }}>
           <Typography 
             sx={{ 
               flexGrow: 1, 
@@ -19,7 +25,11 @@ export default function NavBar() {
               fontSize: "3.5vh",
               letterSpacing: 1,
               fontWeight: 900,
-              textShadow: "1px 0 black"
+              textShadow: "1px 0 black",
+              '&:hover': {
+                color: 'white',
+                textShadow: "1px 0 white",
+                    }
                }}>
             Hiyo
           </Typography>
@@ -28,8 +38,14 @@ export default function NavBar() {
              fontFamily: "Merriweather",
              color:"black",
              textTransform: "none",
-             fontSize: "2.5vh"
-             }}>
+             fontSize: "2.5vh",
+             '&:hover': {
+                color: 'white',
+                textShadow: "1px 0 white",
+                boxShadow:"none",
+                backgroundColor:'#FCADAA'
+                    }
+               }}>
             My Reservations
           </Button>
         </Toolbar>
