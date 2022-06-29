@@ -1,42 +1,49 @@
-import { useState, useEffect } from 'react';
-
-import axios from "axios"
+import { useState} from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import axios from "axios"
 
 import './App.css';
 import NavBar from './components/navigation/NavBar';
 import TopBar from './components/topbar/TopBar';
+import Landing from './pages/Landing';
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import View from './pages/View';
 
 function App() {
 
-  const [restaurantList, setRestaurantList] = useState([]);
+  const [restaurantData, setRestaurantData] = useState([]);
 
-  const API = process.env.REACT_APP_API_URL;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      console.log("Fetching API");
-      const res = await axios.get(`${API}/api/restaurants`);
-      setRestaurantList(res.data)
-      console.log("res is: ", res)
-    };
-    fetchData();
-  }, []);
+  console.log(restaurantData)
 
   return (
-   <main>
-    <NavBar />
-    <TopBar />
-    {restaurantList.restaurants && restaurantList.restaurants.map((each) => {
-      return (
-        <div key={each.id}>
-          <p>{each.name}</p>
-          <p>{each.cuisine}</p>
-          <div>{each.price}</div>
-        </div>
-      )
-    })}
-
-   </main>
+   <BrowserRouter>
+    <main>
+      <NavBar />
+      <TopBar />
+      <React.Fragment>
+        <CssBaseline />
+      <Container maxWidth="xl">
+      <Routes>
+           <Route
+              path="/"
+              element={
+               <Landing   restaurantData={restaurantData}
+               setRestaurantData={setRestaurantData}/>
+              }
+            />
+            <Route
+              path="/restaurants"
+              element={
+               <View />
+              }
+            />
+      </Routes>
+      </Container>
+      </React.Fragment>
+    </main>
+   </BrowserRouter>
   );
 }
 
