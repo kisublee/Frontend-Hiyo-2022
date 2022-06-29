@@ -34,7 +34,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
         if (reservation.numGuests === guestNum) {
             availableTable--;
         }
-        console.log("reservation: ", reservation)
+    
       
     }
     return availableTable;
@@ -85,7 +85,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
             {restaurantData && restaurantData.map((each, i) => {
                 if (each.tables.eightPersonTables > 0) {
                     return (
-                        <Grid>
+                        <Grid key={each.id}>
                         <Card sx={{ width: "37.3vh", ml:"2vh"}}>
                             <CardMedia
                             component="img"
@@ -94,7 +94,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                             image={imageOfRestaurants[each.name]}
                             />
                         <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography gutterBottom variant="h6">
                             {each.name.length > 15 ? each.name.slice(0,16) +"...": each.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">

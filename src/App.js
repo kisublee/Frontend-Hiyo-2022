@@ -15,14 +15,14 @@ import Footer from './components/navigation/Footer';
 function App() {
 
   const [restaurantData, setRestaurantData] = useState([]);
+  const [searchInput, setSearchInput] = useState([]);
 
-  console.log(restaurantData)
-
+  console.log("app:", searchInput)
   return (
    <BrowserRouter>
     <main>
       <NavBar />
-      <TopBar />
+      <TopBar setSearchInput={setSearchInput}/>
       <React.Fragment>
         <CssBaseline />
       <Container maxWidth="xl">
@@ -30,7 +30,8 @@ function App() {
            <Route
               path="/"
               element={
-               <Landing   restaurantData={restaurantData}
+               <Landing  
+               restaurantData={restaurantData}
                setRestaurantData={setRestaurantData}/>
               }
             />

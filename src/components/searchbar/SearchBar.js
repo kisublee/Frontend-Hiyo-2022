@@ -48,21 +48,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar() {
-
-const [tempSearch, setTempSearch] = useState("")
-
+export default function SearchBar({setSearchInput}) {
 
 
   const handleChange = (e) => {
-    setTempSearch(e.target.value);
+    // setTempSearch(e.target.value);
+    setSearchInput(e.target.value);
   };
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  console.log(tempSearch)
+
   return (
     <>
       <form 

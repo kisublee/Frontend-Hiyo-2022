@@ -91,7 +91,7 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
             {restaurantData && restaurantData.map((each, i) => {
                 if (convertClosingTime(each.closingTime) === 24) {
                     return (
-                        <Grid>
+                        <Grid  key={each.id}>
                         <Card sx={{ width: "37.3vh", ml:"2vh"}}>
                             <CardMedia
                             component="img"
@@ -100,13 +100,13 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                             image={imageOfRestaurants[each.name]}
                             />
                         <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography gutterBottom variant="h6">
                             {each.name.length > 15 ? each.name.slice(0,16) +"...": each.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                         {each.cuisine} · {each.price} · {each.location}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" component={"span"}>
                         {checkDiningAvailability(each.diningRestriction)}
                         </Typography>
                         </CardContent>

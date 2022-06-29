@@ -24,7 +24,6 @@ useEffect(() => {
       console.log("Fetching API");
       const res = await axios.get(`${API}/api/restaurants`);
       setRestaurantData(res.data.restaurants)
-      console.log("res is: ", res)
     };
     fetchData();
   }, []);
@@ -77,7 +76,7 @@ useEffect(() => {
                 }}>
             {restaurantData && restaurantData.map((each, i) => {
                 return (
-                    <Grid>
+                    <Grid key={each.id}>
                     <Card sx={{ width: "37.3vh", ml:"2vh"}}>
                         <CardMedia
                         component="img"
@@ -86,7 +85,7 @@ useEffect(() => {
                         image={imageOfRestaurants[each.name]}
                         />
                     <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
+                    <Typography gutterBottom variant="h6">
                         {each.name.length > 15 ? each.name.slice(0,16) +"...": each.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

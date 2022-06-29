@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SearchBar from '../searchbar/SearchBar';
 
-export default function TopBar() {
+export default function TopBar({setSearchInput}) {
   return (
     <Box
       sx={{
@@ -30,7 +30,7 @@ export default function TopBar() {
                 }}>
             Seize your table for a wonderful moment
         </Typography>
-        <SearchBar />
+        <SearchBar setSearchInput={setSearchInput}/>
 
    </Box>
   );
