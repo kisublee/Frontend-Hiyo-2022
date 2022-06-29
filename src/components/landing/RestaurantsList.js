@@ -13,6 +13,8 @@ import Grid from '@mui/material/Grid';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
+import BigTableRestaurants from './BigTableRestaurants';
+import LateNightRestaurants from './LateNightRestaurants';
 
 export default function RestaurantsList({restaurantData, setRestaurantData}) {
 const API = process.env.REACT_APP_API_URL;
@@ -28,7 +30,6 @@ useEffect(() => {
   }, []);
 
   const navigate = useNavigate()
-
   const handleClick = () => {
     navigate("/restaurants")
   }
@@ -71,21 +72,21 @@ useEffect(() => {
             sx={{
                 display:"flex",
                 overflowY:"auto", 
-                width:'100%'
+                width:'100%',
+                height:"43vh"
                 }}>
             {restaurantData && restaurantData.map((each, i) => {
                 return (
-                    <Grid container spacing={3}>
-                    <Grid item xs={2} xl={3}>
-                    <Card sx={{ width: "33.5vh", ml:"2vh"}}>
+                    <Grid>
+                    <Card sx={{ width: "37.3vh", ml:"2vh"}}>
                         <CardMedia
                         component="img"
-                        alt="green iguana"
-                        height="180"
-                        image={imageOfRestaurants[i].image}
+                        alt="restaurant cover image"
+                        height="140"
+                        image={imageOfRestaurants[each.name]}
                         />
                     <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h6" component="div">
                         {each.name.length > 15 ? each.name.slice(0,16) +"...": each.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -98,10 +99,11 @@ useEffect(() => {
                     </CardActions>
                 </Card>
                 </Grid>
-                </Grid>
             )
         })}
         </Box>
+        <BigTableRestaurants restaurantData={restaurantData} handleClick={handleClick}/>
+        <LateNightRestaurants restaurantData={restaurantData} handleClick={handleClick}/>
     </div>
   )
 }

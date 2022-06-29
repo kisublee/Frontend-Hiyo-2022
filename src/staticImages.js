@@ -9,15 +9,15 @@ import korean from "./media/korean.png"
 
 
 
-const imageOfRestaurants = [
-   {"image": mc}, 
-   {"image": pizza}, 
-   {"image": japanese}, 
-   {"image": greek}, 
-   {"image": french},
-   {"image": thai},
-   {"image": mexican},
-   {"image": korean},
-]
+const imageOfRestaurants = {
+   "McDonald's": mc, 
+   "Roberta's Pizza": pizza, 
+   "Mizu": japanese, 
+   "3Greeks Grill": greek, 
+   "La Sucre": french,
+   "Hero Thai (Formerly Three E Taste of Thai)": thai,
+   "De Mole": mexican,
+   "Doma Restaurant": korean,
+}
 
 export default imageOfRestaurants;
