@@ -4,9 +4,8 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SelectMenu from "./SelectMenu";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -50,7 +49,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar({setSearchInput}) {
+export default function SearchBar({setSearchInput, searchOption, setSearchOption, searchInput,setRestaurantData}) {
 
   const navigate = useNavigate();
 
@@ -59,22 +58,26 @@ export default function SearchBar({setSearchInput}) {
     setSearchInput(e.target.value);
   };
 
-
   const handleSubmit = (e) => {
-
     e.preventDefault();
+    setSearchInput(searchInput)
+    setSearchOption(searchOption)
+    setRestaurantData([])
     navigate("/api/restaurants")
   };
 
   return (
     <>
       <form 
-        onSubmit={handleSubmit} 
         style={{  
         display:"flex",
         justifyContent:"center",
         marginTop:"3vh"
         }}>
+        <SelectMenu
+          setSearchOption={setSearchOption}
+          searchOption={searchOption}
+          />
         <Search onChange={handleChange}>
           <SearchIconWrapper>
             <SearchIcon sx={{ color: "white" }} />
