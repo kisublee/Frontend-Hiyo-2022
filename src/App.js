@@ -16,13 +16,21 @@ function App() {
 
   const [restaurantData, setRestaurantData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [searchOption, setSearchOption] = useState("");
 
   console.log("app:", searchInput)
+  console.log("app: ", searchOption)
   return (
    <BrowserRouter>
     <main>
       <NavBar />
-      <TopBar setSearchInput={setSearchInput}/>
+      <TopBar 
+        setRestaurantData={setRestaurantData}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        searchOption={searchOption}
+        setSearchOption={setSearchOption}
+        />
       <React.Fragment>
         <CssBaseline />
       <Container maxWidth="xl">
@@ -38,7 +46,14 @@ function App() {
             <Route
               path="/api/restaurants"
               element={
-               <View searchInput={searchInput} setSearchInput={setSearchInput}/>
+               <View 
+                searchInput={searchInput} 
+                setSearchInput={setSearchInput}
+                searchOption={searchOption}
+                setSearchOption={setSearchOption}
+                restaurantData={restaurantData}
+                setRestaurantData={setRestaurantData}
+                />
               }
             />
       </Routes>
