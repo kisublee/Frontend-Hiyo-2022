@@ -30,7 +30,7 @@ useEffect(() => {
 
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/restaurants")
+    navigate("/api/restaurants")
   }
 
   return (

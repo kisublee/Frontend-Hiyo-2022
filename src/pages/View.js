@@ -1,7 +1,8 @@
 import React from 'react'
+import SearchResult from '../components/searchList/SearchResult'
 
-export default function View() {
+export default function View({searchInput,setSearchInput}) {
   return (
-    <div>View</div>
+    <SearchResult searchInput={searchInput} setSearchInput={setSearchInput}/>
   )
 }

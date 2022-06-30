@@ -6,6 +6,8 @@ import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -50,6 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchBar({setSearchInput}) {
 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     // setTempSearch(e.target.value);
@@ -58,7 +61,9 @@ export default function SearchBar({setSearchInput}) {
 
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
+    navigate("/api/restaurants")
   };
 
   return (

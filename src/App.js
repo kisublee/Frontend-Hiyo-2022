@@ -15,7 +15,7 @@ import Footer from './components/navigation/Footer';
 function App() {
 
   const [restaurantData, setRestaurantData] = useState([]);
-  const [searchInput, setSearchInput] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   console.log("app:", searchInput)
   return (
@@ -36,15 +36,15 @@ function App() {
               }
             />
             <Route
-              path="/restaurants"
+              path="/api/restaurants"
               element={
-               <View />
+               <View searchInput={searchInput} setSearchInput={setSearchInput}/>
               }
             />
       </Routes>
       </Container>
       </React.Fragment>
-      <Footer />
+      {/* <Footer /> */}
     </main>
    </BrowserRouter>
   );
