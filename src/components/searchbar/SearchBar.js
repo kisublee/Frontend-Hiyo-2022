@@ -60,8 +60,6 @@ export default function SearchBar({setSearchInput, searchOption, setSearchOption
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchInput(searchInput)
-    setSearchOption(searchOption)
     setRestaurantData([])
     navigate("/api/restaurants")
   };

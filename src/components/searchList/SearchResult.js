@@ -41,7 +41,6 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
       } else if (searchOption === "name") {
        return route = `?searchTerm=${searchInput}`
       }
-
     }
 
     useEffect(() => {
