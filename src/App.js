@@ -59,7 +59,7 @@ function App() {
       </Routes>
       </Container>
       </React.Fragment>
-      {/* <Footer /> */}
+      <Footer />
     </main>
    </BrowserRouter>
   );
