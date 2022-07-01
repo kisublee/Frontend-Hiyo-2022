@@ -141,7 +141,18 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             fullWidth
             variant="standard"
           />
-        <FormGroup>
+          <TextField
+            onChange={handleChange}
+            value={formInput.diningRestriction}
+            autoFocus
+            margin="dense"
+            id="diningRestriction"
+            label="Take Out, Delivery, or None"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+        {/* <FormGroup>
             <Box sx={{display:"flex"}}>
             <FormControlLabel 
               control={
@@ -162,7 +173,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
               label="delivery"    
             />
             </Box>
-        </FormGroup>
+        </FormGroup> */}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

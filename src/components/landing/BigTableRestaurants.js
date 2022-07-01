@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
+import noImage from "../../media/noImage.png"
 
 export default function BigTableRestaurants({restaurantData, handleClick}) {
 
@@ -83,7 +84,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                 mb:3
                 }}>
             {restaurantData && restaurantData.map((each, i) => {
-                if (each.tables.eightPersonTables > 0) {
+                if (each.tables !== null && each.tables.eightPersonTables > 0) {
                     return (
                         <Grid key={each.id}>
                         <Card sx={{ width: "37.3vh", ml:"2vh"}}>
@@ -91,7 +92,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                             component="img"
                             alt="restaurant cover image"
                             height="140"
-                            image={imageOfRestaurants[each.name]}
+                            image={imageOfRestaurants[each.name] ? imageOfRestaurants[each.name] : noImage}
                             />
                         <CardContent>
                         <Typography gutterBottom variant="h6">

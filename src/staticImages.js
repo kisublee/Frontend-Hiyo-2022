@@ -6,6 +6,7 @@ import french from "./media/french.png"
 import thai from "./media/thai.png"
 import mexican from "./media/mexican.png"
 import korean from "./media/korean.png"
+import noImage from "./media/noImage.png"
 
 
 

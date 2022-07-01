@@ -16,10 +16,7 @@ export default function RequestRestaurant() {
       price: "$", 
       cuisine: "", 
       location: "", 
-      diningRestriction: {
-        takeout: false,
-        delivery: false,
-      }  
+      diningRestriction:""
     }
   )
 
@@ -103,7 +100,7 @@ export default function RequestRestaurant() {
         </Button>
          <RequestRestaurantFormDialog 
           open={open}
-          setOpen={open}
+          setOpen={setOpen}
           handleClose={handleClose}
           setFormInput={setFormInput}
           formInput={formInput}

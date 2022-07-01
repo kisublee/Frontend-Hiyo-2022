@@ -15,6 +15,7 @@ import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
 import BigTableRestaurants from './BigTableRestaurants';
 import LateNightRestaurants from './LateNightRestaurants';
+import noImage from "../../media/noImage.png"
 
 export default function RestaurantsList({restaurantData, setRestaurantData}) {
 const API = process.env.REACT_APP_API_URL;
@@ -82,7 +83,7 @@ useEffect(() => {
                         component="img"
                         alt="restaurant cover image"
                         height="140"
-                        image={imageOfRestaurants[each.name]}
+                        image={imageOfRestaurants[each.name] ? imageOfRestaurants[each.name] : noImage}
                         />
                     <CardContent>
                     <Typography gutterBottom variant="h6">
