@@ -9,6 +9,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imageOfRestaurants from '../../staticImages';
+import noImage from "../../media/noImage.png"
+import { Link } from 'react-router-dom';
 
 export default function SearchResult({searchInput, searchOption, restaurantData, setRestaurantData}) {
 
@@ -28,6 +30,9 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
       if (!searchOption && searchInput) {
        return route = `?searchTerm=${searchInput}`
       }
+      if (searchOption === "none" && !searchInput || searchOption === "none" && searchInput) {
+        return route = ""
+      }
 
       if (searchOption !== "name") {
         let convertStr = searchInput
@@ -40,7 +45,7 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
        return route = `?filters[${searchOption}]=${convertStr}`
       } else if (searchOption === "name") {
        return route = `?searchTerm=${searchInput}`
-      }
+      } 
     }
 
     useEffect(() => {
@@ -64,37 +69,48 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
               maxHeight:"350vh",
               // backgroundColor:"lightBlue"
               }}>
-            {restaurantData.map((restaurant) => {
+            {restaurantData && restaurantData.map((restaurant) => {
               return (
-               <Card key={restaurant.id}
-                sx={{ width: "95%", mb:"2vh", height:"25vh", display:"flex"}}>
-                <CardMedia
-                component="img"
-                alt="restaurant cover image"
-                height="140"
-                image={imageOfRestaurants[restaurant.name]}
-                sx={{
-                  width:"30%", 
-                  height:"100%"
-                }}
-                />
+                <Link 
+                  to={`/restaurants/${restaurant.id}`}
+                  style={{textDecoration:"none"}}
+                  key={restaurant.id}
+                  >
+                  <Card 
+                    sx={{ 
+                          width: "95%",
+                          mb:"2vh",
+                          height:"25vh", 
+                          display:"flex"
+                        }}>
+                    <CardMedia
+                    component="img"
+                    alt="restaurant cover image"
+                    height="140"
+                    image={imageOfRestaurants[restaurant.name] ? imageOfRestaurants[restaurant.name] : noImage}
+                    sx={{
+                      width:"30%", 
+                      height:"100%"
+                    }}
+                    />
 
-                <CardContent>
-                    <Typography gutterBottom variant="h6">
-                        {restaurant.name.length > 15 ? restaurant.name.slice(0,16) +"...": restaurant.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {restaurant.cuisine} · {restaurant.price} · {restaurant.location}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {restaurant.description.length > 150 ? restaurant.description.split("").slice(0,151).join("") + " ..." : restaurant.description }
-                    </Typography>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-                </CardContent>
-            </Card>
+                    <CardContent>
+                        <Typography gutterBottom variant="h6">
+                            {restaurant.name.length > 15 ? restaurant.name.slice(0,16) +"...": restaurant.name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {restaurant.cuisine} · {restaurant.price} · {restaurant.location}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {restaurant.description.length > 150 ? restaurant.description.split("").slice(0,151).join("") + " ..." : restaurant.description }
+                        </Typography>
+                    {/* <CardActions>
+                      <Button size="small"></Button>
+                      <Button size="small">Learn More</Button>
+                    </CardActions> */}
+                    </CardContent>
+                </Card>
+            </Link>
             )
           })}
           </Grid>

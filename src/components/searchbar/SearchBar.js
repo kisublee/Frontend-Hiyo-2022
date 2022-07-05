@@ -6,6 +6,8 @@ import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import SelectMenu from "./SelectMenu";
+import AlertsForInput from "../../utilities/alerts/AlertsForInput";
+import { useState } from "react";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -49,7 +51,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar({setSearchInput, searchOption, setSearchOption, searchInput,setRestaurantData}) {
+export default function SearchBar(
+  {setSearchInput, 
+   searchOption, 
+   setSearchOption, 
+   searchInput,
+   setRestaurantData,
+   isValidSearch,
+   setIsValidSearch
+  }) {
 
   const navigate = useNavigate();
 
@@ -59,10 +69,58 @@ export default function SearchBar({setSearchInput, searchOption, setSearchOption
   };
 
   const handleSubmit = (e) => {
+   
     e.preventDefault();
-    setRestaurantData([])
-    navigate("/api/restaurants")
+    if (checkInput(searchInput, searchOption) === false) {
+        setIsValidSearch(false)
+    } else {
+      setIsValidSearch(true)
+      setRestaurantData([])
+      navigate("/api/restaurants")
+    }
   };
+
+  const placeHolderLists = (searchOption) => {
+    let placeHolder = ""
+    if (searchOption === "name") {
+
+     return placeHolder = "Enter a name of restaurant ex) Doma"
+    }
+    else if (searchOption === "cuisine") {
+      return placeHolder = "Enter a name of cuisine ex) American"
+    }
+    else if (searchOption === "location") {
+      return placeHolder = "Enter your preferred location ex) New York City"
+    }
+    else if (searchOption === "price") {
+     return  placeHolder = "Enter price between $ and $$$$ ex) $" 
+    }
+    else if (searchOption === "diningRestriction") {
+      return placeHolder = "Check your preferred dining option ex) Take Out" 
+    } else {
+      return placeHolder
+    }
+  }
+
+  const checkInput = (searchInput, searchOption) => {
+
+    if (searchOption === "name" && !searchInput) {
+        return false
+     }
+     else if (searchOption === "cuisine" && !searchInput) {
+      return false
+     }
+     else if (searchOption === "location" && !searchInput) {
+      return false
+     }
+     else if (searchOption === "price" && !searchInput) {
+      return false
+     }
+     else if (searchOption === "diningRestriction" && !searchInput) {
+      return false
+     }
+  }
+
 
   return (
     <>
@@ -78,13 +136,14 @@ export default function SearchBar({setSearchInput, searchOption, setSearchOption
           />
         <Search onChange={handleChange}>
           <SearchIconWrapper>
-            <SearchIcon sx={{ color: "white" }} />
+           <SearchIcon sx={{ color: "white" }} /> 
           </SearchIconWrapper>
+       
           <StyledInputBase
-            placeholder="Restaurants, Location, or Cuisine"
+            placeholder={ placeHolderLists(searchOption)}
             inputProps={{ "aria-label": "search" }}
-            sx={{ color: "black"}}
-          />
+            sx={{ color: "black", mt:"1vh"}}
+          />  
         </Search>
         <Button 
          variant="contained"

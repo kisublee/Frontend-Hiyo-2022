@@ -37,7 +37,7 @@ export default function SelectMenu({setSearchOption, searchOption}) {
         }}
         >
           <MenuItem defaultValue=""> Search by </MenuItem>
-          <MenuItem value="">None</MenuItem>
+          <MenuItem value={"none"}>None</MenuItem>
           <MenuItem value={"name"}>Name</MenuItem>
           <MenuItem value={"cuisine"}>Cuisine</MenuItem>
           <MenuItem value={"location"}>Location</MenuItem>

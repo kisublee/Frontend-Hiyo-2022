@@ -11,25 +11,32 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import View from './pages/View';
 import Footer from './components/navigation/Footer';
+import RestaurantDetail from './components/searchList/RestaurantDetail';
+import Detail from './pages/Detail';
 
 function App() {
 
   const [restaurantData, setRestaurantData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchOption, setSearchOption] = useState("");
+  const [isValidSearch, setIsValidSearch] = useState(true)
 
   console.log("app:", searchInput)
   console.log("app: ", searchOption)
   return (
    <BrowserRouter>
     <main>
-      <NavBar />
+      <NavBar 
+        setIsValidSearch={setIsValidSearch}
+      />
       <TopBar 
         setRestaurantData={setRestaurantData}
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         searchOption={searchOption}
         setSearchOption={setSearchOption}
+        isValidSearch={isValidSearch}
+        setIsValidSearch={setIsValidSearch}
         />
       <React.Fragment>
         <CssBaseline />
@@ -55,6 +62,13 @@ function App() {
                 setRestaurantData={setRestaurantData}
                 />
               }
+            />
+             <Route
+              path="/restaurants/:id"
+              element={
+                <Detail />
+              }
+              
             />
       </Routes>
       </Container>

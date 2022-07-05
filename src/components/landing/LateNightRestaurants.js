@@ -15,6 +15,8 @@ import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
+import noImage from "../../media/noImage.png";
+
 
 export default function LateNightRestaurants({restaurantData, handleClick}) {
 
@@ -97,7 +99,7 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                             component="img"
                             alt="restaurant cover image"
                             height="140"
-                            image={imageOfRestaurants[each.name]}
+                            image={imageOfRestaurants[each.name] ? imageOfRestaurants[each.name] : noImage}
                             />
                         <CardContent>
                         <Typography gutterBottom variant="h6">
