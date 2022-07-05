@@ -11,7 +11,7 @@ export default function AvailableTimeTable(restaurant) {
   };
 
   const handleTakenReservation = () => {
-    window.alert("This time slot is already taken.")
+    window.alert("There is no available table for your number of guests at this time.")
   }
 
   const handleClose = () => {
@@ -49,7 +49,16 @@ export default function AvailableTimeTable(restaurant) {
               const formatTargetTime = split[1].substring(0,5)
               const compareTime = time.substring(0,5)
               console.log(formatTargetTime, compareTime)
-              if (formatTargetTime == compareTime) {
+              let checkTable = ""
+              if (target.numGuests === 8) {
+                 checkTable = "eightPersonTables"
+              } else if (target.numGuests === 4) {
+                checkTable = "fourPersonTables"
+              } else if (target.numGuests === 2) {
+                checkTable = "twoPersonTables"
+              }
+
+              if (formatTargetTime == compareTime && restaurant.tables[checkTable] === 0) {
                 return true
               }
             }) ?
