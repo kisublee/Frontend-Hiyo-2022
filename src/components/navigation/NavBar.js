@@ -6,10 +6,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar({setIsValidSearch}) {
 
   const navigate = useNavigate();
   const handleClick = () => {
+    setIsValidSearch(true)
     navigate("/")
   }
 
