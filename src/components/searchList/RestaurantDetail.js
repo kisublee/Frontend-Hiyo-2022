@@ -108,8 +108,7 @@ export default function RestaurantDetail() {
                       </Box>
                     
                       <CardActions>
-                      <Button size="small">Book a </Button>
-                      <Button size="small">Learn More</Button>
+                      <Button sx={{ml:1}}size="small">Notify me when unavailable tables become available</Button>
                       </CardActions>
                   </Card>
               </Grid>
