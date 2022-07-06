@@ -102,7 +102,7 @@ export default function RestaurantDetail() {
                       <Box sx={{mt:3, display:"flex", ml:4}}>
                         <Grid container spacing={2}>
                           {/* <Grid item lg={1}> */}
-                          {/* {restaurantInfo && AvailableTimeTable(restaurantInfo)} */}
+                          {restaurantInfo && AvailableTimeTable(restaurantInfo)}
                           {/* </Grid> */}
                         </Grid>
                       </Box>

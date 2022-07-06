@@ -12,16 +12,16 @@ import Checkbox from '@mui/material/Checkbox';
 import axios from "axios"
 import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
-export default function ReservationDialog({open, setOpen, handleClose}) {
+export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput}) {
 
   const API = process.env.REACT_APP_API_URL;
 
   const navigate = useNavigate()
 
-//   const handleChange = (event) => {
-//     console.log(event.target.id, event.target.value);
-//      setFormInput({...formInput, [event.target.id]: event.target.value});
-//   };
+  const handleChange = (event) => {
+    console.log(event.target.id, event.target.value);
+     setFormInput({...formInput, [event.target.id]: event.target.value});
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,37 +38,37 @@ export default function ReservationDialog({open, setOpen, handleClose}) {
   return (
     <div>
         <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Create a restaurant</DialogTitle>
+        <DialogTitle>Reservation Form</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Fill out this form with correct information.
+            Fill out this form to make a reservation
           </DialogContentText>
           <TextField
-        //   onChange={handleChange}
-        //   value={formInput.name}
+          onChange={handleChange}
+          value={formInput.name}
           autoFocus
           margin="dense"
-          id="name"
-          label="name"
+          id="firstName"
+          label="first name"
           type="text"
           fullWidth
           variant="standard"
         />
           <TextField
-            // onChange={(event) => handleChange(event)}
-            // value={formInput.description}
+            onChange={(event) => handleChange(event)}
+            value={formInput.description}
             autoFocus
             multiline
             margin="dense"
-            id="description"
-            label="description"
+            id="lastName"
+            label="last name"
             type="text"
             fullWidth
             variant="standard"
           />
           <TextField
-            // onChange={handleChange}
-            // value={formInput.phoneNumber}
+            onChange={handleChange}
+            value={formInput.phoneNumber}
             autoFocus
             margin="dense"
             id="phoneNumber"
@@ -78,35 +78,35 @@ export default function ReservationDialog({open, setOpen, handleClose}) {
             variant="standard"
           />
           <TextField
-            // onChange={handleChange}
-            // value={formInput.openingTime}
+            onChange={handleChange}
+            value={formInput.openingTime}
             // inputProps={{ pattern: "([01]\d|2[0-3]):?[0-5]\d" }}
             autoFocus
             margin="dense"
-            id="openingTime"
-            label="opening time ex) 10:00:00"
+            id="email"
+            label="email"
             type="text"
             fullWidth
             variant="standard"
           />
           <TextField
-            // onChange={handleChange}
-            // value={formInput.closingTime}
+            onChange={handleChange}
+            value={formInput.closingTime}
             autoFocus
             margin="dense"
-            id="closingTime"
-            label="closing time ex) 22:00:00"
+            id="time"
+            label="time"
             type="text"
             fullWidth
             variant="standard"
           />
           <TextField
-            // onChange={handleChange}
-            // value={formInput.price}
+            onChange={handleChange}
+            value={formInput.numGuests}
             autoFocus
             margin="dense"
-            id="price"
-            label="price between $ and $$$$"
+            id="numGuests"
+            label="number of guests"
             type="text"
             fullWidth
             variant="standard"
