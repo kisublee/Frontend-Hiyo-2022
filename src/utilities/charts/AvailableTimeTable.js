@@ -1,11 +1,14 @@
 import { Box, Grid, Button } from '@mui/material'
 import React, { useState } from 'react'
 import ReservationDialog from '../dialogs/ReservationDialog';
-
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 export default function AvailableTimeTable(restaurant) {
 
   const [open, setOpen] = useState(false);
-
+  const [openSnackBar, setOpenSnackBar] = useState(false)
+  const restaurantID = restaurant.id
+  console.log(restaurantID)
   const [formInput, setFormInput] = useState(
     { 
       firstName: "", 
@@ -14,6 +17,7 @@ export default function AvailableTimeTable(restaurant) {
       email: "", 
       time: "", 
       numGuests: "", 
+      restaurantId: ""
     }
   )
 
@@ -21,11 +25,19 @@ export default function AvailableTimeTable(restaurant) {
     setOpen(true);
   };
 
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
   console.log(formInput)
 
   const handleTakenReservation = () => {
     window.alert("There is no available table for your number of guests at this time.")
   }
+
+  const handleSnackBar = () => {
+    setOpenSnackBar(false);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -112,7 +124,14 @@ export default function AvailableTimeTable(restaurant) {
                 formInput={formInput}
                 setFormInput={setFormInput}
                 time={time}
+                restaurantID={restaurantID}
+                setOpenSnackBar={setOpenSnackBar}
             />
+            <Snackbar open={openSnackBar} autoHideDuration={4000} onClose={handleSnackBar}>
+            <Alert onClose={handleClose} severity="success" sx={{ width: '100%', boxShadow:"none" }}>
+              Your reservation has been sent! Thank you and see you soon!
+            </Alert>
+          </Snackbar>
             </>
             
         

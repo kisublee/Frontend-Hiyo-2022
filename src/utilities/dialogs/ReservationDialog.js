@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Button} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -12,28 +12,49 @@ import Checkbox from '@mui/material/Checkbox';
 import axios from "axios"
 import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
-export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput, time}) {
+export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput, time, restaurantID, setOpenSnackBar}) {
 
   const API = process.env.REACT_APP_API_URL;
 
   const navigate = useNavigate()
 
+  // "time": "2022-06-01 19:00:00", 
+  // event.target.id === "price" || event.target.id === "rating"
+  // ? setArtist({
+  //     ...artist,
+  //     [event.target.id]: Number(event.target.value),
+  //   })
+  // : setArtist({
+  //     ...artist,
+  //     [event.target.id]: event.target.value,
+  //   });
+
+  const getDate = new Date().toLocaleDateString();
+  const formatDate = getDate.split("/").reverse().join("-")
+  const getTime = time.substring(0,5)
+  const timeValue = `${formatDate} ${getTime}:00`
+
   const handleChange = (event) => {
-    console.log(event.target.id, event.target.value);
-     setFormInput({...formInput, [event.target.id]: event.target.value});
+      setFormInput({...formInput, [event.target.id]: event.target.value});
   };
+
+  useEffect(() => {
+    setFormInput({...formInput, time: timeValue, restaurantId: restaurantID} )
+    // setFormInput({...formInput, restaurantId: restaurantID})
+  }, [restaurantID])
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // axios
-    //   .post(`${API}/api/restaurants`, )
-    //   .then(() => {
-    //     setOpen(false)
-    //   })
-    //   .catch((err) => console.warn(err));
+    axios
+      .post(`${API}/api/reservations`,formInput )
+      .then(() => {
+        setOpen(false)
+        setOpenSnackBar(true)
+      })
+      .catch((err) => console.warn(err));
 
   }
-
     
   return (
     <div>
@@ -44,8 +65,20 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             Fill out this form to make a reservation
           </DialogContentText>
           <TextField
+          sx={{visibility:"hidden"}}
+          value={restaurantID}
+          autoFocus
+          margin="dense"
+          id="restaurantId"
+          label="retaurantId"
+          type="text"
+          fullWidth
+          variant="standard"
+          hidden
+        />
+          <TextField
           onChange={handleChange}
-          value={formInput.name}
+          value={formInput.firstName}
           autoFocus
           margin="dense"
           id="firstName"
@@ -56,7 +89,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
         />
           <TextField
             onChange={(event) => handleChange(event)}
-            value={formInput.description}
+            value={formInput.lastName}
             autoFocus
             multiline
             margin="dense"
@@ -79,7 +112,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
           />
           <TextField
             onChange={handleChange}
-            value={formInput.openingTime}
+            value={formInput.email}
             // inputProps={{ pattern: "([01]\d|2[0-3]):?[0-5]\d" }}
             autoFocus
             margin="dense"
@@ -91,10 +124,10 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
           />
           <TextField
             onChange={handleChange}
-            value={time}
+            value={timeValue}
             autoFocus
             margin="dense"
-            id="time"
+            id="timeValue"
             label="time"
             type="text"
             fullWidth

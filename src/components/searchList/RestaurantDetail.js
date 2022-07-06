@@ -8,12 +8,16 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import AvailableTimeTable from '../../utilities/charts/AvailableTimeTable'
+
+
 export default function RestaurantDetail() {
+
 
     const API = process.env.REACT_APP_API_URL;
     const [restaurantInfo, setRestaurantInfo] = useState([]);
     const { id } = useParams();
     
+
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -114,8 +118,6 @@ export default function RestaurantDetail() {
               </Grid>
           </Grid>
         </Box>
-
-
     </div>
   )
 }
