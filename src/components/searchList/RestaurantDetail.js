@@ -102,13 +102,13 @@ export default function RestaurantDetail() {
                       <Box sx={{mt:3, display:"flex", ml:4}}>
                         <Grid container spacing={2}>
                           {/* <Grid item lg={1}> */}
-                          {restaurantInfo && AvailableTimeTable(restaurantInfo)}
+                          {/* {restaurantInfo && AvailableTimeTable(restaurantInfo)} */}
                           {/* </Grid> */}
                         </Grid>
                       </Box>
                     
                       <CardActions>
-                      <Button sx={{ml:1}}size="small">Notify me when unavailable tables become available</Button>
+                      <Button sx={{ml:1 }}size="small">Notify me when unavailable tables become available</Button>
                       </CardActions>
                   </Card>
               </Grid>

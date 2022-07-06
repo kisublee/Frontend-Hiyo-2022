@@ -17,6 +17,7 @@ export default function AvailableTimeTable(restaurant) {
   const handleClose = () => {
     setOpen(false);
   };
+  
     if (restaurant) {
     let openingTime = restaurant.openingTime
     let closingTime = restaurant.closingTime
@@ -41,10 +42,10 @@ export default function AvailableTimeTable(restaurant) {
         }
     }
     console.log(tableList)
+    console.log(restaurant)
     return tableList && tableList.map((time, i) => {
-
         return (
-            restaurant.reservations.find((target) => {
+             restaurant.reservations.find((target) => {
               const split = target.time.split("T")
               const formatTargetTime = split[1].substring(0,5)
               const compareTime = time.substring(0,5)
