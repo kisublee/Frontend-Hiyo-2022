@@ -13,6 +13,9 @@ export default function NavBar({setIsValidSearch}) {
     setIsValidSearch(true)
     navigate("/")
   }
+  const navigateToReservation = () => {
+    navigate("/reservations")
+  }
 
   return (
     <Box sx={{flexGrow: 1}}>
@@ -42,7 +45,9 @@ export default function NavBar({setIsValidSearch}) {
                }}>
             Hiyo
           </Typography>
-          <Button color="inherit"
+          <Button 
+            onClick={navigateToReservation}
+            color="inherit"
             sx={{ 
              fontFamily: "Merriweather",
              color:"black",

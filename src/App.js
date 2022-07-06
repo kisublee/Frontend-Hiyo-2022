@@ -13,6 +13,7 @@ import View from './pages/View';
 import Footer from './components/navigation/Footer';
 import RestaurantDetail from './components/searchList/RestaurantDetail';
 import Detail from './pages/Detail';
+import Reservation from './pages/Reservation';
 
 function App() {
 
@@ -68,7 +69,12 @@ function App() {
               element={
                 <Detail />
               }
-              
+            />
+            <Route
+              path="/reservations"
+              element={
+               <Reservation />
+              }
             />
       </Routes>
       </Container>
