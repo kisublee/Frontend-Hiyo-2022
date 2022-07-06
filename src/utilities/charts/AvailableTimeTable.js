@@ -18,7 +18,6 @@ export default function AvailableTimeTable(restaurant) {
   )
 
   const handleClickOpen = (e) => {
-    setFormInput({...formInput, [formInput.time]: e.currentTarget.value})
     setOpen(true);
   };
 
@@ -105,7 +104,6 @@ export default function AvailableTimeTable(restaurant) {
                     width:"12vh",
                     m:0.3,
                     }}> {time} 
-                value={time.substring(0,5)}
             </Button>
             <ReservationDialog 
                 open={open} 
@@ -113,6 +111,7 @@ export default function AvailableTimeTable(restaurant) {
                 handleClose={handleClose}
                 formInput={formInput}
                 setFormInput={setFormInput}
+                time={time}
             />
             </>
             

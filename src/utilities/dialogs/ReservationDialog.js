@@ -12,7 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import axios from "axios"
 import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
-export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput}) {
+export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput, time}) {
 
   const API = process.env.REACT_APP_API_URL;
 
@@ -91,7 +91,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
           />
           <TextField
             onChange={handleChange}
-            value={formInput.closingTime}
+            value={time}
             autoFocus
             margin="dense"
             id="time"
