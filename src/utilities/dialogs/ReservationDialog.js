@@ -86,6 +86,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
           type="text"
           fullWidth
           variant="standard"
+          required
         />
           <TextField
             onChange={(event) => handleChange(event)}
@@ -98,6 +99,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -109,6 +111,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -132,6 +135,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -143,6 +147,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           
 

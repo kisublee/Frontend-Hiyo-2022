@@ -11,9 +11,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import View from './pages/View';
 import Footer from './components/navigation/Footer';
-import RestaurantDetail from './components/searchList/RestaurantDetail';
 import Detail from './pages/Detail';
 import Reservation from './pages/Reservation';
+import DetailReservation from './pages/DetailReservation';
 
 function App() {
 
@@ -73,7 +73,13 @@ function App() {
             <Route
               path="/reservations"
               element={
-               <Reservation />
+               <Reservation restaurantData={restaurantData}/>
+              }
+            />
+             <Route
+              path="/reservations/:id"
+              element={
+                <DetailReservation />
               }
             />
       </Routes>

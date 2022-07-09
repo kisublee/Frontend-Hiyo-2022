@@ -1,3 +1,4 @@
+import { NineKPlusOutlined } from '@mui/icons-material';
 import { Box, Button, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { useRef } from "react";
@@ -13,10 +14,10 @@ export default function RequestRestaurant() {
       phoneNumber: "", 
       openingTime: "", 
       closingTime: "", 
-      price: "$", 
+      price: "", 
       cuisine: "", 
       location: "", 
-      diningRestriction:""
+      diningRestriction:"" || null
     }
   )
 

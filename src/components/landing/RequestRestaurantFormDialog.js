@@ -6,9 +6,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import axios from "axios"
 import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
@@ -61,6 +58,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
           type="text"
           fullWidth
           variant="standard"
+          required
         />
           <TextField
             onChange={(event) => handleChange(event)}
@@ -73,6 +71,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -96,6 +95,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -107,6 +107,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -118,6 +119,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
            <TextField
             onChange={handleChange}
@@ -129,6 +131,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
            <TextField
             onChange={handleChange}
@@ -140,6 +143,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             type="text"
             fullWidth
             variant="standard"
+            required
           />
           <TextField
             onChange={handleChange}
@@ -147,7 +151,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             autoFocus
             margin="dense"
             id="diningRestriction"
-            label="Take Out, Delivery, or None"
+            label="Takeout Only, Delivery Only, or null"
             type="text"
             fullWidth
             variant="standard"
