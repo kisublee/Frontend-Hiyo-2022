@@ -57,6 +57,22 @@
 - `time` **pre-selected based on a time slot users chose**
 - `number of guests` **required**
 ---
+### On Reservation page 
+1) Users can see a list of all reservations in two ways
+- With `Quick look`, users can view 10 reservations per page quickly & efficiently 
+- With `Detail` users can view all reservations in card format and upon clicking `VIEW MORE`, users will be directed to that specific reservations' detail page
+---
+### On Reservation Detail page 
+1) Users can see a specific reservation with details, containing information like `Reservation Date, Reservation Time, and Reservation Made on`
+2) Users can edit the existing reservation information by clicking the pencil icon at the bottom left
+- The existing information is pre-typed for users
+- Users can update any field they wish to. Without any change, users can still submit but it won't update anything.
+- Users can submit with the `SUBMIT` button at the bottom left
+- Users can go back by clicking `BACK TO THE RESERVATION` button at the bottom
+
+3) Users can expand the detail card by clicking arrow mark at the bottom of the card
+- Users can see a note
+---
 
 ## Features
 
