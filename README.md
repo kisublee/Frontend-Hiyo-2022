@@ -1,9 +1,9 @@
 ### Frontend
 [Frontend Deployment](https://verdant-paletas-443b1f.netlify.app)
 
-# Welcome to my A.I app. 
+# Welcome to Hiyo. 
 
-**Talktome** helps people find answers to questions that may seem trivial. If you need someone to talk to, Talktome is always there for you as well.
+**Hiyo** helps people make reservations at their favorite restaurants in New York City. 
 
 ---
 
