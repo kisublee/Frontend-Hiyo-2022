@@ -79,7 +79,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             autoFocus
             margin="dense"
             id="phoneNumber"
-            label="phone number"
+            label="phone number ex)1235557777"
             type="text"
             fullWidth
             variant="standard"
@@ -151,7 +151,7 @@ export default function RequestRestaurantFormDialog({open, setOpen, handleClose,
             autoFocus
             margin="dense"
             id="diningRestriction"
-            label="Takeout Only, Delivery Only, or null"
+            label="Dining Option Choose From: Takeout Only, Delivery Only, or Leave it empty"
             type="text"
             fullWidth
             variant="standard"
