@@ -78,7 +78,14 @@ useEffect(() => {
             {restaurantData && restaurantData.map((each, i) => {
                 return (
                     <Grid key={each.id}>
-                    <Card sx={{ width: "37.3vh", ml:"2vh"}}>
+                    <Card
+                     sx={{ 
+                        width: "37.3vh", ml:"2vh",
+                        '&:hover': {
+                        backgroundColor:"#FFD1AF",
+                        cursor:"grab",
+
+                    }}}>
                         <CardMedia
                         component="img"
                         alt="restaurant cover image"

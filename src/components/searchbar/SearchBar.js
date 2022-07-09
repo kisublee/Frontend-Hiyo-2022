@@ -87,7 +87,7 @@ export default function SearchBar(
      return placeHolder = "Enter a name of restaurant ex) Doma"
     }
     else if (searchOption === "cuisine") {
-      return placeHolder = "Enter a name of cuisine ex) American"
+      return placeHolder = "Enter a name of cuisine ex) American, Mexican"
     }
     else if (searchOption === "location") {
       return placeHolder = "Enter your preferred location ex) New York City"

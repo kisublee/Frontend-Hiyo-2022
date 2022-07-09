@@ -94,7 +94,11 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                 if (convertClosingTime(each.closingTime) === 24) {
                     return (
                         <Grid  key={each.id}>
-                        <Card sx={{ width: "37.3vh", ml:"2vh"}}>
+                        <Card sx={{ width: "37.3vh", ml:"2vh", '&:hover': {
+                        backgroundColor:"#FFD1AF",
+                        cursor:"grab",
+
+                    }}}>
                             <CardMedia
                             component="img"
                             alt="restaurant cover image"

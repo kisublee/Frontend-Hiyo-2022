@@ -12,7 +12,7 @@ export default function SelectMenu({setSearchOption, searchOption}) {
   };
 
   return (
-    <Box sx={{ width: "13vh"}}>
+    <Box sx={{ width: "20vh"}}>
       <FormControl fullWidth>
         <InputLabel 
             id="search-options"
