@@ -3,7 +3,7 @@
 
 # Welcome to Hiyo. 
 
-**Hiyo** helps people make reservations at their favorite restaurants in New York City. 
+**Hiyo** helps people make reservations at their favorite (or soon to be) restaurants in New York City. 
 
 ---
 
