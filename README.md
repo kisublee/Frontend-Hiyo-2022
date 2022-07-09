@@ -57,7 +57,7 @@
 - `time` **pre-selected based on a time slot users chose**
 - `number of guests` **required**
 ---
-### On Reservation page 
+### On Reservation page (after clicking the `My Reservations` at the top right)
 1) Users can see a list of all reservations in two ways
 - With `Quick look`, users can view 10 reservations per page quickly & efficiently 
 - With `Detail` users can view all reservations in card format and upon clicking `VIEW MORE`, users will be directed to that specific reservations' detail page
