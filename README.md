@@ -69,8 +69,8 @@
 - Users can update any field they wish to. Without any change, users can still submit but it won't update anything.
 - Users can submit with the `SUBMIT` button at the bottom left
 - Users can go back by clicking `BACK TO THE RESERVATION` button at the bottom
-
-3) Users can expand the detail card by clicking arrow mark at the bottom of the card
+3) Users can delete the existing reservation by clicking the trash bin icon
+4) Users can expand the detail card by clicking arrow mark at the bottom of the card
 - Users can see a note
 ---
 
