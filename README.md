@@ -20,8 +20,17 @@
 - ```Location``` users cans search restaurants based on location * `case sensitve` ex) type New York City or Queens
 - ```Price``` users can search restaurants based on price  ex) $, $$, $$$, or $$$$. `Max is $$$$. Min is $`
 - ```Takeout/Delivery``` users can search restaurants based on dining restriction. You can type `Takeout Only` or `Delivery Only`
-2) Users can fill out a form to add a new restaurant
-- ```description``` **required**
+2) Users can navigate to the reservation page where they can see all reservations with an option to see details.
+- Click `My Reservations` at the top right side. When hovered, its color changes to white
+3) Users can see a list of recommend restaurants 
+- `Restaurants of Today` displays randomly selected restaurants of a day
+4) Users can see a list of restaurants with eight person tables for large events.
+- ```Big Tables for a big group event - restaurants with eight person tables``` displays how many 8 person tables are available at a moment
+5) Users can see a list of restaurants that open till midnight
+- ```Open Till Midnight for your late night food``` displays restaurants that open till midnight with their dining availability. ex) X means Takeout Only
+6) Users can fill out a form to add a new restaurant
+- ```name``` **required** 
+- ```description``` **required** 
 - ```phone number``` **required** ex) 1113337777
 - ```opening time``` **required** ex) 10:00:00 
 - ```closing time``` r**required** ex) 22:00:00. If it closes at 24:00:00, enter 00:00:00 instead
@@ -30,11 +39,23 @@
 - ```location``` **required** For Manhattan, enter New York City instead. space and case sensitve. ex) Queens or New York City
 - ```dining option``` optional. You can type `Takeout Only`, `Delivery Only` or leave this field empty
 
+---
+### On Search page (after clicking the search button on landing page) 
+1) Users can see a list of specific restaurants based on their search option with basic information such as cuisine, location, price, and description.
+2) Upon clicking a restaurant, users will be directed to that specific restaurant's detail page
+3) Google map shows locations of restaurants. (Not implemented yet. Static image as a placeholder for now)
 
-3) Results are displayed in a list, sorted from newest to oldest.
-4) You can open and use it on your phone or your computer.
-5) You can choose the randomness of A.I's answers.  
-
+---
+### On Search page (after clicking the search button on landing page) 
+1) Users can see a specific restaurant with details.
+2) Users can see a list of time slots and currently available tables at the restaurant.
+3) Users can make a reservation at their preferred time by clicking one of those time slots
+- `first name` **required**
+- `last name ` **required**
+- `phone number` **required**
+- `email` optional
+- `time` **pre-selected based on a time slot users chose**
+- `number of guests` **required**
 ---
 
 ## Features
