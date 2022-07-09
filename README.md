@@ -76,19 +76,10 @@
 
 ## Features
 
-- GPT-3, a powerful AI model created by OpenAI, implemented. Users can type any questions they may have and GPT-3 will answer.
+- Dropdown search options for better searching experience.
+- Image slider implemented for easy viewing
+- Real-time notification when making a reservation successfully 
 
-- Users can choose the randomness of answers. 'General' gives users more general answers whereas 'Specific' gives users more specific answers.
-
-- Loading animation implemented. When users start typing, users can see the loading bar changing which gives a sense of live interaction
-
-- Hovering effect for the submit button. 
-
-- Shopify favicon
-
-- Results are displayed in a list, sorted from newest to oldest. Each result inclues the original question and a response from the API.
-
-- Responsive app. Mobile friendly. 
 
 
 ---
