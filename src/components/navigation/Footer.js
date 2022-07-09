@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import LogoutIcon from '@mui/icons-material/Logout';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { Typography } from '@mui/material';
 
 export default function Footer () {
 
@@ -27,10 +28,23 @@ export default function Footer () {
             sx={{ 
                 display:"flex", 
                 justifyContent:"center",
-                height:"50vh"
+                height:"20vh"
             }}>
             <Toolbar>
-                
+              <Box sx={{display:"flex", justifyContent:"center"}}>
+                <Typography sx={{mr:2}}>
+                  About
+                </Typography>
+                <Typography  sx={{mr:2}}>
+                  Career
+                </Typography>
+                <Typography sx={{mr:2}}>
+                  Contact
+                </Typography>
+                <Typography  sx={{mr:2}}>
+                  Partnership
+                </Typography>
+                </Box>
             </Toolbar>
       </Box>
     </AppBar>

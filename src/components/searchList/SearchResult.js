@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import imageOfRestaurants from '../../staticImages';
 import noImage from "../../media/noImage.png"
 import { Link } from 'react-router-dom';
+import googleMap from "../../media/googleMap.jpeg"
 
 export default function SearchResult({searchInput, searchOption, restaurantData, setRestaurantData}) {
 
@@ -60,9 +61,8 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1, mt:30 }}>
+      <Box sx={{ flexGrow: 1, mt:30}}>
         <Grid container spacing={1}>
-          
           <Grid  // Left Box
             item xs={6} lg={6} 
             sx={{
@@ -116,12 +116,8 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
           </Grid>
 
           <Grid // Right Box
-            item xs={6} lg={6} 
-            sx={{
-              height:"350vh",
-              backgroundColor:"lightGreen"
-              }}>
-            <div>xs</div>
+            item xs={6} lg={6} >
+            <img src={googleMap} />
           </Grid>
         </Grid>
       </Box>
