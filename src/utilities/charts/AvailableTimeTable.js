@@ -22,6 +22,7 @@ export default function AvailableTimeTable(restaurant) {
   );
 
   const handleClickOpen = (e) => {
+    setFormInput({...formInput, time: e.target.value})
     setOpen(true);
   };
 
@@ -66,12 +67,9 @@ export default function AvailableTimeTable(restaurant) {
     return tableList && tableList.map((time, i) => {
         return (
             restaurant.reservations[0] !== null && restaurant.reservations.find((target) => {
-              console.log(restaurant)
               const split = target.time.split("T");
-              console.log(split)
               const getTime = split[1]
               const formatTargetTime = getTime.substring(0,5);
-              console.log(getTime, "format: ", formatTargetTime)
               const compareTime = time && time.substring(0,5);
               let checkTable = ""
               
@@ -102,33 +100,39 @@ export default function AvailableTimeTable(restaurant) {
                 {time} 
             </Button>
             <ReservationDialog 
-                open={open} 
-                setOpen={setOpen} 
-                handleClose={handleClose}
-                formInput={formInput}
-                setFormInput={setFormInput}
+              open={open} 
+              setOpen={setOpen} 
+              handleClose={handleClose}
+              formInput={formInput}
+              setFormInput={setFormInput}
+              time={time}
+              restaurantID={restaurantID}
+              setOpenSnackBar={setOpenSnackBar}
                 />
             </>
             : 
             <>
             <Button variant="contained" 
                 onClick={(e) => handleClickOpen(e)}
+                value={time}
                 sx={{
                     backgroundColor:"#1778CD", 
                     color:"white",
                     width:"12vh",
                     m:0.3,
-                    }}> {time} 
+                    }}
+            > 
+                {time} 
             </Button>
             <ReservationDialog 
-                open={open} 
-                setOpen={setOpen} 
-                handleClose={handleClose}
-                formInput={formInput}
-                setFormInput={setFormInput}
-                time={time}
-                restaurantID={restaurantID}
-                setOpenSnackBar={setOpenSnackBar}
+              open={open} 
+              setOpen={setOpen} 
+              handleClose={handleClose}
+              formInput={formInput}
+              setFormInput={setFormInput}
+              time={time}
+              restaurantID={restaurantID}
+              setOpenSnackBar={setOpenSnackBar}
             />
             <Snackbar open={openSnackBar} autoHideDuration={4000} onClose={handleSnackBar}>
               <Alert onClose={handleClose} severity="success" sx={{ width: '100%', boxShadow:"none" }}>
