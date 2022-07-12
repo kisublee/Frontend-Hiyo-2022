@@ -22,12 +22,16 @@
 - ```Takeout/Delivery``` users can search restaurants based on dining restriction. You can type `Takeout Only` or `Delivery Only`
 2) Users can navigate to the reservation page where they can see all reservations with an option to see details.
 - Click `My Reservations` at the top right side. When hovered, its color changes to white
-3) Users can see a list of recommend restaurants * Upon clicking, users can go to that specific restaurant's detail page
+
+3) Users can see a list of recommend restaurants
 - `Restaurants of Today` displays randomly selected restaurants of a day. 
+- Upon clicking, users can go to that specific restaurant's detail page directly from this list.
 4) Users can see a list of restaurants with eight person tables for large events. 
 - ```Big Tables for a big group event - restaurants with eight person tables``` displays how many 8 person tables are available at a moment
+- Upon clicking, users can go to that specific restaurant's detail page directly from this list.
 5) Users can see a list of restaurants that open till midnight
 - ```Open Till Midnight for your late night food``` displays restaurants that open till midnight with their dining availability. ex) X means Takeout Only
+- Upon clicking, users can go to that specific restaurant's detail page directly from this list.
 6) Users can fill out a form to add a new restaurant
 - ```name``` **required** 
 - ```description``` **required** 
