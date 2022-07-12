@@ -10,7 +10,7 @@
 ## How to use 
 
 ### On landing page
-(Please give it a few seconds while it fetches data for the landing page! Loading animation in process)
+
 1) Users can search a restaurant with the search bar
 - ```By default``` clicking the search button without any input and any search option gives a list of every restaurant
 - ```By default``` without selecting any search option, users can type into the search bar and the app finds restaurants. ex) hai => the app looks for hai in restaurants' names and descriptions. 
@@ -77,6 +77,7 @@
 ## Features
 
 - Dropdown search options for better searching experience
+- Loading animation for the landing page
 - Image slider implemented for easy viewing
 - Real-time notification when making a reservation successfully 
 - Expandable reservation detail card
@@ -88,7 +89,6 @@
 
 ## Future Implementations
 
-- Loading animation for the landing page
 - Enhanced searching engine 
 - Display unavailable time slots
 
