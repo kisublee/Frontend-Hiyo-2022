@@ -110,7 +110,6 @@ export default function ReservationDetail() {
                                         
                 </Typography>
                 <Typography variant="h6">
-                
                         Email: 
                             <span className='reservation_list_item'>{
                             reservationDetail.email 
@@ -132,7 +131,6 @@ export default function ReservationDetail() {
                             </span>
                 </Typography>
                 <Typography variant="h6">
-                
                         Reservation Date: 
                             <span className='reservation_list_item'>
                             {reservationDetail.time && reservationDetail.time.split("").slice(0,10).join("")}

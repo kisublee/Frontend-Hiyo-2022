@@ -71,7 +71,6 @@ const columns = [
 
 const rows = reservationData.map((each) => each)
 
-
 // Can make this function global
 const findRestaurantName = (restaurantId) => {
 
@@ -88,9 +87,6 @@ const phoneFormat = (phoneNumber) => {
 const handleClick = (id) => {
     navigate(`/reservations/${id}`)
 }
-
-
-
 
   return (
     <Box sx={{height:"300vh"}}>
@@ -112,16 +108,16 @@ const handleClick = (id) => {
         >
             Quick look at Reservations
         </Typography>
-        <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
-        checkboxSelection
-        disableSelectionOnClick
-        />
+          <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          checkboxSelection
+          disableSelectionOnClick
+          />
         </Box>
-        <Box sx={{mt:"20vh", height:"100vh", width:"100%"}}>
+        <Box sx={{mt:"20vh", height:"164vh", width:"100%", overflowY:'scroll'}}>
           <Typography
             sx={{
                 fontFamily: "Merriweather",
@@ -139,46 +135,42 @@ const handleClick = (id) => {
         >
             Detail
         </Typography>
-
-        <Grid container spacing={0} sx={{overFlowY:"scroll"}} >
+        <Grid container spacing={0}>
            {reservationData.map((reservation) => { 
             return (
                 <div>
                     <Grid item lg={3} key={reservation.id}>
-                    <Card sx={{ width: "37.3vh", ml:"2vh", mb:"2vh", '&:hover': {
-                        backgroundColor:"#FFD1AF",
-                        cursor:"grab",
-
-                    }}}>
-                                <CardMedia
-                                component="img"
-                                alt="restaurant cover image"
-                                height="140"
-                                image={imageOfRestaurants[findRestaurantName(reservation.restaurantId)] ? imageOfRestaurants[findRestaurantName(reservation.restaurantId)] : noImage}
-                                />
-                            <CardContent>
+                      <Card sx={{ width: "37.3vh", ml:"2vh", mb:"2vh", '&:hover': {
+                          backgroundColor:"#FFD1AF",
+                          cursor:"grab",
+                      }}}>
+                        <CardMedia
+                        component="img"
+                        alt="restaurant cover image"
+                        height="140"
+                        image={imageOfRestaurants[findRestaurantName(reservation.restaurantId)] ? imageOfRestaurants[findRestaurantName(reservation.restaurantId)] : noImage}
+                        />
+                          <CardContent>
                             <Typography gutterBottom variant="h6">
                               {findRestaurantName(reservation.restaurantId).length > 15 ? findRestaurantName(reservation.restaurantId).slice(0,16) + "..." : findRestaurantName(reservation.restaurantId)}
                             </Typography>
                             <Typography gutterBottom variant="h7">
-                             Name:   {reservation.firstName} {reservation.lastName}
+                              Name:   {reservation.firstName} {reservation.lastName}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                             Email: {reservation.email ? reservation.email : "N/A"} <br/>
-                             Phone: {phoneFormat(reservation.phoneNumber)} 
+                              Email: {reservation.email ? reservation.email : "N/A"} <br/>
+                              Phone: {phoneFormat(reservation.phoneNumber)} 
                             </Typography>
-                            </CardContent>
-                            <CardActions>
-                            <Button size="small" onClick={() => handleClick(reservation.id)}>View More</Button>
-                            </CardActions>
+                          </CardContent>
+                          <CardActions>
+                           <Button size="small" onClick={() => handleClick(reservation.id)}>View More</Button>
+                          </CardActions>
                         </Card>
                     </Grid>
-            </div>
+             </div>
             )
            })}
-        </Grid>
-        
-
+          </Grid>
         </Box>
     </Box>
   )
