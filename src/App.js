@@ -23,9 +23,10 @@ function App() {
   const [isValidSearch, setIsValidSearch] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("app:", searchInput)
-  console.log("app: ", searchOption)
+  // console.log("app:", searchInput)
+  // console.log("app: ", searchOption)
   console.log("loding", isLoading)
+  // console.log(restaurantData)
   return (
    <BrowserRouter>
     <main>

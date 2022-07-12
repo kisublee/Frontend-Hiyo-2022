@@ -10,7 +10,10 @@ import Typography from '@mui/material/Typography';
 import axios from "axios"
 import imageOfRestaurants from '../../staticImages'
 import Grid from '@mui/material/Grid';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Stack } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+
 import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
 import BigTableRestaurants from './BigTableRestaurants';
@@ -25,6 +28,7 @@ useEffect(() => {
       console.log("Fetching API");
       const res = await axios.get(`${API}/api/restaurants`);
       setRestaurantData(res.data.restaurants)
+      setIsLoading(false)
     };
     fetchData();
   }, []);
@@ -36,6 +40,14 @@ useEffect(() => {
 
   return (
     <div>
+         {isLoading 
+         ? 
+         <Stack sx={{ color: 'red', display:"flex", justifyContent:"center", mt:"35vh" }} spacing={2} direction="row">
+        <CircularProgress color='inherit' thickness={10}
+        size="29vh" />
+        </Stack>
+      :
+        <>
         <Box sx={{mt:"40vh", mb:1, display:"flex"}}>
             <Typography gutterBottom variant="h4" 
                 sx={{
@@ -111,6 +123,8 @@ useEffect(() => {
         </Box>
         <BigTableRestaurants restaurantData={restaurantData} handleClick={handleClick}/>
         <LateNightRestaurants restaurantData={restaurantData} handleClick={handleClick}/>
+        </>
+    }
     </div>
   )
 }

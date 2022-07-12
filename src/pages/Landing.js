@@ -19,11 +19,7 @@ export default function Landing({restaurantData, setRestaurantData, isLoading, s
         />
       <RequestRestaurant />
       </>
-      // : 
-      // <Stack sx={{ color: 'red', display:"flex", justifyContent:"center", mt:"35vh" }} spacing={2} direction="row">
-      // <CircularProgress color='inherit' thickness={10}
-      //   size="29vh" />
-      // </Stack>
+      
       
   )
 }
