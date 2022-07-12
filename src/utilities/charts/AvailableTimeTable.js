@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import ReservationDialog from '../dialogs/ReservationDialog';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+
 export default function AvailableTimeTable(restaurant) {
 
   const [open, setOpen] = useState(false);
@@ -24,7 +25,6 @@ export default function AvailableTimeTable(restaurant) {
   const handleClickOpen = (e) => {
     setOpen(true);
   };
-
 
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -67,7 +67,6 @@ export default function AvailableTimeTable(restaurant) {
     }
     console.log(tableList)
     return tableList && tableList.map((time, i) => {
-
         return (
             // restaurant.reservations.find((target) => {
             //   const split = target.time.split("T")

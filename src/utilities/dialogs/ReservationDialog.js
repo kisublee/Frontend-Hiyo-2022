@@ -37,7 +37,9 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
   const handleChange = (event) => {
       setFormInput({...formInput, [event.target.id]: event.target.value});
   };
-
+  console.log("time", time)
+console.log("getTime:", getTime)
+console.log(timeValue)
   useEffect(() => {
     setFormInput({...formInput, time: timeValue, restaurantId: restaurantID} )
     // setFormInput({...formInput, restaurantId: restaurantID})
@@ -53,9 +55,8 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
         setOpenSnackBar(true)
       })
       .catch((err) => console.warn(err));
-
   }
-    
+
   return (
     <div>
         <Dialog open={open} onClose={handleClose}>
@@ -130,7 +131,7 @@ export default function ReservationDialog({open, setOpen, handleClose, formInput
             value={timeValue}
             autoFocus
             margin="dense"
-            id="timeValue"
+            id="time"
             label="time"
             type="text"
             fullWidth

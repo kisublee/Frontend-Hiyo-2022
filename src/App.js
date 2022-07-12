@@ -20,10 +20,12 @@ function App() {
   const [restaurantData, setRestaurantData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchOption, setSearchOption] = useState("");
-  const [isValidSearch, setIsValidSearch] = useState(true)
+  const [isValidSearch, setIsValidSearch] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   console.log("app:", searchInput)
   console.log("app: ", searchOption)
+  console.log("loding", isLoading)
   return (
    <BrowserRouter>
     <main>
@@ -48,7 +50,10 @@ function App() {
               element={
                <Landing  
                restaurantData={restaurantData}
-               setRestaurantData={setRestaurantData}/>
+               setRestaurantData={setRestaurantData}
+               setIsLoading={setIsLoading}
+               isLoading={isLoading}
+               />
               }
             />
             <Route

@@ -17,7 +17,7 @@ import BigTableRestaurants from './BigTableRestaurants';
 import LateNightRestaurants from './LateNightRestaurants';
 import noImage from "../../media/noImage.png"
 
-export default function RestaurantsList({restaurantData, setRestaurantData}) {
+export default function RestaurantsList({restaurantData, setRestaurantData, isLoading, setIsLoading}) {
 const API = process.env.REACT_APP_API_URL;
 
 useEffect(() => {
