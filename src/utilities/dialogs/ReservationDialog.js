@@ -29,7 +29,7 @@ export default function ReservationDialog({
 
   const getDate = new Date().toLocaleDateString();
   const formatDate = getDate.split("/").reverse().join("-")
-  const getTime = time.substring(0,5)
+  const getTime = time && time.substring(0,5)
   const timeValue = `${formatDate} ${getTime}:00`
 
   useEffect(() => {
@@ -51,6 +51,8 @@ export default function ReservationDialog({
       })
       .catch((err) => console.warn(err));
   }
+
+  console.log(formInput)
 
   return (
     <div>

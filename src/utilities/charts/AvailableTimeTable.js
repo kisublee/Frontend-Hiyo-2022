@@ -7,9 +7,8 @@ import MuiAlert from '@mui/material/Alert';
 export default function AvailableTimeTable(restaurant) {
 
   const [open, setOpen] = useState(false);
-  const [openSnackBar, setOpenSnackBar] = useState(false)
-  const restaurantID = restaurant.id
-  console.log(restaurantID)
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+  const restaurantID = restaurant.id;
   const [formInput, setFormInput] = useState(
     { 
       firstName: "", 
@@ -20,7 +19,7 @@ export default function AvailableTimeTable(restaurant) {
       numGuests: "", 
       restaurantId: ""
     }
-  )
+  );
 
   const handleClickOpen = (e) => {
     setOpen(true);
@@ -29,7 +28,6 @@ export default function AvailableTimeTable(restaurant) {
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
-  console.log(formInput)
 
   const handleTakenReservation = () => {
     window.alert("There is no available table for your number of guests at this time.")
@@ -65,47 +63,53 @@ export default function AvailableTimeTable(restaurant) {
             }
         }
     }
-    console.log(tableList)
     return tableList && tableList.map((time, i) => {
         return (
-            // restaurant.reservations.find((target) => {
-            //   const split = target.time.split("T")
-            //   const formatTargetTime = split[1].substring(0,5)
-            //   const compareTime = time.substring(0,5)
-            //   console.log(formatTargetTime, compareTime)
-            //   let checkTable = ""
-            //   if (target.numGuests === 8) {
-            //      checkTable = "eightPersonTables"
-            //   } else if (target.numGuests === 4) {
-            //     checkTable = "fourPersonTables"
-            //   } else if (target.numGuests === 2) {
-            //     checkTable = "twoPersonTables"
-            //   }
+            restaurant.reservations[0] !== null && restaurant.reservations.find((target) => {
+              console.log(restaurant)
+              const split = target.time.split("T");
+              console.log(split)
+              const getTime = split[1]
+              const formatTargetTime = getTime.substring(0,5);
+              console.log(getTime, "format: ", formatTargetTime)
+              const compareTime = time && time.substring(0,5);
+              let checkTable = ""
+              
+              if (target.numGuests === 8) {
+                 checkTable = "eightPersonTables"
+              } else if (target.numGuests === 4) {
+                checkTable = "fourPersonTables"
+              } else if (target.numGuests === 2) {
+                checkTable = "twoPersonTables"
+              };
 
-            //   if (formatTargetTime == compareTime && restaurant.tables[checkTable] === 0) {
-            //     return true
-            //   }
-            // }) ?
-        //     <>
-        //     <Button variant="contained" 
-        //     onClick={handleTakenReservation}
-        //     sx={{
-        //         backgroundColor:"red", 
-        //         color:"white",
-        //         width:"12vh",
-        //         m:0.3,
-        //         '&:hover': {
-        //             backgroundColor: 'darkRed',
-        //         },
-        //         }}> {time} 
-        // </Button>
-        // <ReservationDialog 
-        //     open={open} 
-        //     setOpen={setOpen} 
-        //     handleClose={handleClose}
-        //     />
-        //     </>
-            // : 
+              if ((formatTargetTime === compareTime) && restaurant.tables[checkTable] === 0) {
+                return true
+              };
+            }) ?
+            <>
+            <Button variant="contained" 
+            onClick={handleTakenReservation}
+            sx={{
+                backgroundColor:"red", 
+                color:"white",
+                width:"12vh",
+                m:0.3,
+                '&:hover': {
+                    backgroundColor: 'darkRed',
+                },
+                }}> 
+                {time} 
+            </Button>
+            <ReservationDialog 
+                open={open} 
+                setOpen={setOpen} 
+                handleClose={handleClose}
+                formInput={formInput}
+                setFormInput={setFormInput}
+                />
+            </>
+            : 
             <>
             <Button variant="contained" 
                 onClick={(e) => handleClickOpen(e)}
@@ -127,10 +131,10 @@ export default function AvailableTimeTable(restaurant) {
                 setOpenSnackBar={setOpenSnackBar}
             />
             <Snackbar open={openSnackBar} autoHideDuration={4000} onClose={handleSnackBar}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%', boxShadow:"none" }}>
-              Your reservation has been sent! Thank you and see you soon!
-            </Alert>
-          </Snackbar>
+              <Alert onClose={handleClose} severity="success" sx={{ width: '100%', boxShadow:"none" }}>
+                Your reservation has been sent! Thank you and see you soon!
+              </Alert>
+            </Snackbar>
             </>
             
         
