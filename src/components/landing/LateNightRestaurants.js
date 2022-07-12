@@ -1,21 +1,25 @@
 import React from 'react'
+
+//MUI
 import Box from '@mui/material/Box';
-import {useEffect} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import axios from "axios"
-import imageOfRestaurants from '../../staticImages'
 import Grid from '@mui/material/Grid';
+
+//Media
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import Divider from '@mui/material/Divider';
-import { useNavigate } from "react-router-dom";
+import imageOfRestaurants from '../../staticImages'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import noImage from "../../media/noImage.png";
+
+//Others
+import { Link } from "react-router-dom";
+
 
 
 export default function LateNightRestaurants({restaurantData, handleClick}) {
@@ -94,6 +98,11 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                 if (convertClosingTime(each.closingTime) === 24) {
                     return (
                         <Grid  key={each.id}>
+                            <Link 
+                    to={`/restaurants/${each.id}`}
+                    style={{textDecoration:"none"}}
+                    key={each.id}
+                  >
                         <Card sx={{ width: "37.3vh", ml:"2vh", '&:hover': {
                         backgroundColor:"#FFD1AF",
                         cursor:"grab",
@@ -121,6 +130,7 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                         <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
+                    </Link>
                     </Grid>
                 )
                 }

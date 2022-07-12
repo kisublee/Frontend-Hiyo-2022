@@ -12,7 +12,7 @@ import imageOfRestaurants from '../../staticImages'
 import Grid from '@mui/material/Grid';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Divider from '@mui/material/Divider';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import noImage from "../../media/noImage.png"
 
 export default function BigTableRestaurants({restaurantData, handleClick}) {
@@ -87,6 +87,11 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                 if (each.tables !== null && each.tables.eightPersonTables > 0) {
                     return (
                         <Grid key={each.id}>
+                             <Link 
+                    to={`/restaurants/${each.id}`}
+                    style={{textDecoration:"none"}}
+                    key={each.id}
+                  >
                         <Card sx={{ width: "37.3vh", ml:"2vh", '&:hover': {
                         backgroundColor:"#FFD1AF",
                         cursor:"grab",
@@ -114,6 +119,7 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                         <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
+                    </Link>
                     </Grid>
                 )
                 }

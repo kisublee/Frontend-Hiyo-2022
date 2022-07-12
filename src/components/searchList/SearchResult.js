@@ -3,10 +3,8 @@ import axios from 'axios';
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imageOfRestaurants from '../../staticImages';
 import noImage from "../../media/noImage.png"
@@ -67,7 +65,6 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
             item xs={6} lg={6} 
             sx={{
               maxHeight:"350vh",
-              // backgroundColor:"lightBlue"
               }}>
             {restaurantData && restaurantData.map((restaurant) => {
               return (
@@ -78,19 +75,23 @@ export default function SearchResult({searchInput, searchOption, restaurantData,
                   >
                   <Card 
                     sx={{ 
-                          width: "95%",
-                          mb:"2vh",
-                          height:"25vh", 
-                          display:"flex"
+                      width: "95%",
+                      mb:"2vh",
+                      height:"25vh", 
+                      display:"flex",
+                      '&:hover': {
+                        backgroundColor:"#FFD1AF",
+                        cursor:"grab",
+                    }
                         }}>
                     <CardMedia
                     component="img"
                     alt="restaurant cover image"
                     height="140"
                     image={imageOfRestaurants[restaurant.name] ? imageOfRestaurants[restaurant.name] : noImage}
-                    sx={{
-                      width:"30%", 
-                      height:"100%"
+                      sx={{
+                        width:"30%", 
+                        height:"100%"
                     }}
                     />
 

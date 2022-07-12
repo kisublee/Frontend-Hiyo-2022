@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+//MUI
 import { Box, Button} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -6,46 +7,40 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+
+//Others
 import axios from "axios"
 import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
-export default function ReservationDialog({open, setOpen, handleClose, formInput, setFormInput, time, restaurantID, setOpenSnackBar}) {
+export default function ReservationDialog({
+  open, 
+  setOpen, 
+  handleClose, 
+  formInput, 
+  setFormInput, 
+  time, 
+  restaurantID, 
+  setOpenSnackBar
+}) {
 
   const API = process.env.REACT_APP_API_URL;
 
   const navigate = useNavigate()
-
-  // "time": "2022-06-01 19:00:00", 
-  // event.target.id === "price" || event.target.id === "rating"
-  // ? setArtist({
-  //     ...artist,
-  //     [event.target.id]: Number(event.target.value),
-  //   })
-  // : setArtist({
-  //     ...artist,
-  //     [event.target.id]: event.target.value,
-  //   });
 
   const getDate = new Date().toLocaleDateString();
   const formatDate = getDate.split("/").reverse().join("-")
   const getTime = time.substring(0,5)
   const timeValue = `${formatDate} ${getTime}:00`
 
+  useEffect(() => {
+    setFormInput({...formInput, time: timeValue, restaurantId: restaurantID} )
+  }, [restaurantID])
+  
+  // Event Handlers
   const handleChange = (event) => {
       setFormInput({...formInput, [event.target.id]: event.target.value});
   };
-  console.log("time", time)
-console.log("getTime:", getTime)
-console.log(timeValue)
-  useEffect(() => {
-    setFormInput({...formInput, time: timeValue, restaurantId: restaurantID} )
-    // setFormInput({...formInput, restaurantId: restaurantID})
-  }, [restaurantID])
-
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -150,9 +145,6 @@ console.log(timeValue)
             variant="standard"
             required
           />
-          
-
-       
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

@@ -13,9 +13,7 @@ import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Stack } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
-import Divider from '@mui/material/Divider';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import BigTableRestaurants from './BigTableRestaurants';
 import LateNightRestaurants from './LateNightRestaurants';
 import noImage from "../../media/noImage.png"
@@ -89,7 +87,12 @@ useEffect(() => {
                 }}>
             {restaurantData && restaurantData.map((each, i) => {
                 return (
-                    <Grid key={each.id}>
+                <Grid key={each.id}>
+                  <Link 
+                    to={`/restaurants/${each.id}`}
+                    style={{textDecoration:"none"}}
+                    key={each.id}
+                  >
                     <Card
                      sx={{ 
                         width: "37.3vh", ml:"2vh",
@@ -116,8 +119,10 @@ useEffect(() => {
                     <Button size="small">Share</Button>
                     <Button size="small">Learn More</Button>
                     </CardActions>
-                </Card>
-                </Grid>
+                 </Card>
+               </Link>
+             </Grid>
+
             )
         })}
         </Box>

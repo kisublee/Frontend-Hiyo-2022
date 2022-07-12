@@ -5,7 +5,6 @@ import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, Grid, 
 import placeHolderCoverImage from "../../media/image 12.png"
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import AvailableTimeTable from '../../utilities/charts/AvailableTimeTable'
 
@@ -44,8 +43,7 @@ export default function RestaurantDetail() {
       }
 
     }
-
-      console.log(restaurantInfo)
+    
   return (
     <div>
         <Box sx={{mt:"30vh"}}>
