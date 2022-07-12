@@ -1,14 +1,12 @@
 import React from 'react'
+
+//Importing components
 import RequestRestaurant from '../components/landing/RequestRestaurant'
 import RestaurantsList from '../components/landing/RestaurantsList'
-import CircularProgress from '@mui/material/CircularProgress';
-import { Stack } from '@mui/material';
 
 export default function Landing({restaurantData, setRestaurantData, isLoading, setIsLoading}) {
 
-
-  return (
- 
+  return ( 
       <>
       <RestaurantsList 
         restaurantData={restaurantData} 
@@ -19,7 +17,5 @@ export default function Landing({restaurantData, setRestaurantData, isLoading, s
         />
       <RequestRestaurant />
       </>
-      
-      
   )
 }
