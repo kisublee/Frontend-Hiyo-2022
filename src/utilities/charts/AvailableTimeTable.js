@@ -21,11 +21,17 @@ export default function AvailableTimeTable(restaurant) {
     }
   );
 
+  const getDate = new Date().toLocaleDateString();
+  const formatDate = getDate.split("/").reverse().join("-")
+  // const getTime = formInput.time && formInput.time.substring(0,5)
+  // const timeValue = `${formatDate} ${getTime}:00`
+
   const handleClickOpen = (e) => {
-    setFormInput({...formInput, time: e.target.value})
+    setFormInput({...formInput, time: `${formatDate} ${e.target.value.length === 7 ? e.target.value.substring(0,5) : e.target.value.substring(0,4)}:00`})
     setOpen(true);
   };
 
+  console.log(formInput)
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });

@@ -26,11 +26,7 @@ export default function ReservationDialog({
   const API = process.env.REACT_APP_API_URL;
 
   const navigate = useNavigate()
-  const getDate = new Date().toLocaleDateString();
-  const formatDate = getDate.split("/").reverse().join("-")
-  const getTime = formInput.time && formInput.time.substring(0,5)
-  const timeValue = `${formatDate} ${getTime}:00`
-
+  
   useEffect(() => {
     setFormInput({...formInput, restaurantId: restaurantID} )
   }, [restaurantID]);
@@ -43,7 +39,7 @@ export default function ReservationDialog({
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API}/api/reservations`,formInput )
+      .post(`${API}/api/reservations`, formInput)
       .then(() => {
         setOpen(false)
         setOpenSnackBar(true)
@@ -123,8 +119,7 @@ export default function ReservationDialog({
               variant="standard"
             />
             <TextField
-              onChange={handleChange}
-              value={timeValue}
+              value={formInput.time}
               autoFocus
               margin="dense"
               id="time"
