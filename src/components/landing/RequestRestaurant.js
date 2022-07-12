@@ -1,8 +1,9 @@
-import { NineKPlusOutlined } from '@mui/icons-material';
+import React, { useState, useRef } from 'react'
+//MUI
 import { Box, Button, Typography } from '@mui/material';
-import React, { useState } from 'react'
-import { useRef } from "react";
+//Medias
 import cookingVideo from "../../media/food_cooking.mp4"
+//Importing components
 import RequestRestaurantFormDialog from './RequestRestaurantFormDialog';
 
 export default function RequestRestaurant() {
@@ -20,8 +21,6 @@ export default function RequestRestaurant() {
       diningRestriction:"" || null
     }
   )
-
-  console.log("formInput: ", formInput)
 
   const vidRef = useRef(null);
   const handlePlayVideo = () => {
@@ -53,11 +52,11 @@ export default function RequestRestaurant() {
         mt:3,
         textAlign:"center"
         }}>
-        You don't see a restaurant you want to book a table at?
-        <br/> 
-        Do you want to add a restaurant? 
-        <br/> 
-        Click the button below!
+          You don't see a restaurant you want to book a table at?
+          <br/> 
+          Do you want to add a restaurant? 
+          <br/> 
+          Click the button below!
       </Typography>
       <video
         ref={vidRef}
@@ -99,13 +98,13 @@ export default function RequestRestaurant() {
          >
             Submit
         </Button>
-         <RequestRestaurantFormDialog 
+        <RequestRestaurantFormDialog 
           open={open}
           setOpen={setOpen}
           handleClose={handleClose}
           setFormInput={setFormInput}
           formInput={formInput}
-        />
+      />
     </Box>
   )
 }

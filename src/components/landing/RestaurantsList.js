@@ -35,7 +35,7 @@ const API = process.env.REACT_APP_API_URL;
 
 useEffect(() => {
     const fetchData = async () => {
-      console.log("Fetching API");
+      console.log("Fetching API for Restaurant List");
       const res = await axios.get(`${API}/api/restaurants`);
       setRestaurantData(res.data.restaurants)
       setIsLoading(false)

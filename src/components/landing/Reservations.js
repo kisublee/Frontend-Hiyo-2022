@@ -1,29 +1,29 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+//MUI
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useNavigate } from 'react-router-dom';
+//Medias
 import imageOfRestaurants from '../../staticImages';
 import noImage from "../../media/noImage.png"
-
+//Others
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 export default function Reservations({restaurantData}) {
 
     const [reservationData, setReservationData] = useState([])
-    const [tempRestaurantData, setTempRestaurantData] = useState([])
+    const [tempRestaurantData, setTempRestaurantData] = useState([]);
 
     const API = process.env.REACT_APP_API_URL;
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get(`${API}/api/reservations`);
             const tempRes = await axios.get(`${API}/api/restaurants`)
-       
             setReservationData(res.data.reservations)
             setTempRestaurantData(tempRes.data.restaurants)
-            
         };
         fetchData()
     }, [])
@@ -91,30 +91,30 @@ const handleClick = (id) => {
   return (
     <Box sx={{height:"300vh"}}>
         <Box sx={{ mt:"30vh", height:"100vh", width:"100%"}}>
-        <Typography
-            sx={{
-                fontFamily: "Merriweather",
-                color:"black",
-                textTransform: "none",
-                textAlign:"center",
-                mb:3,
-                fontSize: "6.5vh",
-                '&:hover': {
-                   textShadow: "2px 0 white",
-                   boxShadow:"none",
-                   color:'#FCADAA'
-                       }
-            }}
-        >
-            Quick look at Reservations
-        </Typography>
+          <Typography
+              sx={{
+                  fontFamily: "Merriweather",
+                  color:"black",
+                  textTransform: "none",
+                  textAlign:"center",
+                  mb:3,
+                  fontSize: "6.5vh",
+                  '&:hover': {
+                    textShadow: "2px 0 white",
+                    boxShadow:"none",
+                    color:'#FCADAA'
+                        }
+                }}
+          >
+              Quick look at Reservations
+          </Typography>
           <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[10]}
-          checkboxSelection
-          disableSelectionOnClick
+            rows={rows}
+            columns={columns}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
+            checkboxSelection
+            disableSelectionOnClick
           />
         </Box>
         <Box sx={{mt:"20vh", height:"164vh", width:"100%", overflowY:'scroll'}}>
@@ -131,28 +131,44 @@ const handleClick = (id) => {
                    boxShadow:"none",
                    color:'#FCADAA'
                        }
-            }}
-        >
+              }}
+          >
             Detail
         </Typography>
         <Grid container spacing={0}>
            {reservationData.map((reservation) => { 
             return (
-                <div>
-                    <Grid item lg={3} key={reservation.id}>
-                      <Card sx={{ width: "37.3vh", ml:"2vh", mb:"2vh", '&:hover': {
-                          backgroundColor:"#FFD1AF",
-                          cursor:"grab",
-                      }}}>
+                <div key={reservation.id}>
+                    <Grid item lg={3}>
+                      <Card 
+                          sx={{ 
+                           width: "37.3vh",
+                           ml:"2vh", 
+                           mb:"2vh", 
+                           '&:hover': {
+                            backgroundColor:"#FFD1AF",
+                            cursor:"grab",
+                          }}}>
                         <CardMedia
                         component="img"
                         alt="restaurant cover image"
                         height="140"
-                        image={imageOfRestaurants[findRestaurantName(reservation.restaurantId)] ? imageOfRestaurants[findRestaurantName(reservation.restaurantId)] : noImage}
+                        image={
+                          imageOfRestaurants[findRestaurantName(reservation.restaurantId)] 
+                          ? 
+                          imageOfRestaurants[findRestaurantName(reservation.restaurantId)] 
+                          : 
+                          noImage}
                         />
                           <CardContent>
                             <Typography gutterBottom variant="h6">
-                              {findRestaurantName(reservation.restaurantId).length > 15 ? findRestaurantName(reservation.restaurantId).slice(0,16) + "..." : findRestaurantName(reservation.restaurantId)}
+                              {
+                               findRestaurantName(reservation.restaurantId).length > 15
+                               ? 
+                               findRestaurantName(reservation.restaurantId).slice(0,16) + "..." 
+                               : 
+                               findRestaurantName(reservation.restaurantId)
+                               }
                             </Typography>
                             <Typography gutterBottom variant="h7">
                               Name:   {reservation.firstName} {reservation.lastName}

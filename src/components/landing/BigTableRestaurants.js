@@ -35,8 +35,6 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
         if (reservation.numGuests === guestNum) {
             availableTable--;
         }
-    
-      
     }
     return availableTable;
  }
@@ -55,7 +53,8 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                     fontWeight: 900, 
                     textAlign:"left"
                     }}>
-                    Big Tables for a big group event - restaurants with eight person tables
+                    Big Tables for a big group event - 
+                    restaurants with eight person tables
             </Typography>
             <Typography  
                 onClick={handleClick}
@@ -68,8 +67,8 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                     letterSpacing: 1,
                     fontWeight: 900,
                     '&:hover': {
-                            textDecoration:"underline"
-                            }
+                        textDecoration:"underline"
+                        }
                     }}>
                     See more
             </Typography>
@@ -82,7 +81,8 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                 width:'100%',
                 height:"45vh",
                 mb:3
-                }}>
+                }}
+        >
             {restaurantData && restaurantData.map((each, i) => {
                 if (each.tables !== null && each.tables.eightPersonTables > 0) {
                     return (
@@ -113,7 +113,14 @@ export default function BigTableRestaurants({restaurantData, handleClick}) {
                                         {each.cuisine} · {each.price} · {each.location}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
-                                        Available 8 person tables: {each.reservations[0] !== null ? calAvailableTables(each, 8) : each.tables.eightPersonTables}
+                                        Available 8 person tables: 
+                                            {
+                                            each.reservations[0] !== null 
+                                            ? 
+                                            calAvailableTables(each, 8) 
+                                            : 
+                                            each.tables.eightPersonTables
+                                            }
                                         </Typography>
                                     </CardContent>
                                     <CardActions>

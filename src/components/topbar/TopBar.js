@@ -1,6 +1,8 @@
 import * as React from 'react';
+//MUI
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+//Importing components
 import SearchBar from '../searchbar/SearchBar';
 
 export default function TopBar({
@@ -11,7 +13,8 @@ export default function TopBar({
   setRestaurantData,
   isValidSearch,
   setIsValidSearch
-  }) {
+  }) 
+  {
   return (
     <Box
       sx={{
@@ -19,11 +22,7 @@ export default function TopBar({
         height: "25vh",
         position:"absolute",
         backgroundColor:'#EC8B61',
-        // '&:hover': {
-        //   backgroundColor: '#D87B54',
-        //   opacity: [0.9, 0.8, 0.7],
-        // },
-      }}
+        }}
     >
         <Typography 
                 sx={{ 
@@ -35,7 +34,8 @@ export default function TopBar({
                 letterSpacing: 1,
                 fontWeight: 900,
                 marginTop:"2.5vh"
-                }}>
+                }}
+          >
             Seize your table for a wonderful moment
         </Typography>
         <SearchBar 
@@ -47,7 +47,6 @@ export default function TopBar({
           isValidSearch={isValidSearch}
           setIsValidSearch={setIsValidSearch}
           />
-
    </Box>
   );
 }

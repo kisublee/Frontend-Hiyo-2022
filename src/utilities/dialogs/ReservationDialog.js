@@ -7,10 +7,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
 //Others
 import axios from "axios"
-import { useNavigate } from "react-router-dom";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
 export default function ReservationDialog({
   open, 
@@ -24,8 +22,6 @@ export default function ReservationDialog({
 }) {
 
   const API = process.env.REACT_APP_API_URL;
-
-  const navigate = useNavigate()
   
   useEffect(() => {
     setFormInput({...formInput, restaurantId: restaurantID} )
@@ -46,8 +42,6 @@ export default function ReservationDialog({
       })
       .catch((err) => console.warn(err));
   }
-
-  console.log(formInput)
 
   return (
     <div>

@@ -1,14 +1,14 @@
-import SearchIcon from "@mui/icons-material/Search";
-
+import { useState } from "react";
+//MUI
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
 import SelectMenu from "./SelectMenu";
-import AlertsForInput from "../../utilities/alerts/AlertsForInput";
-import { useState } from "react";
-
+//Medias
+import SearchIcon from "@mui/icons-material/Search";
+//Others
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -59,7 +59,8 @@ export default function SearchBar(
    setRestaurantData,
    isValidSearch,
    setIsValidSearch
-  }) {
+  }) 
+  {
 
   const navigate = useNavigate();
 
@@ -80,6 +81,7 @@ export default function SearchBar(
     }
   };
 
+  //Change placeholder based on selected searching option
   const placeHolderLists = (searchOption) => {
     let placeHolder = ""
     if (searchOption === "name") {
@@ -119,8 +121,7 @@ export default function SearchBar(
      else if (searchOption === "diningRestriction" && !searchInput) {
       return false
      }
-  }
-
+  };
 
   return (
     <>
@@ -138,7 +139,6 @@ export default function SearchBar(
           <SearchIconWrapper>
            <SearchIcon sx={{ color: "white" }} /> 
           </SearchIconWrapper>
-       
           <StyledInputBase
             placeholder={ placeHolderLists(searchOption)}
             inputProps={{ "aria-label": "search" }}

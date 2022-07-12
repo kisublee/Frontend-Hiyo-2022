@@ -17,8 +17,6 @@ import noImage from "../../media/noImage.png";
 //Others
 import { Link } from "react-router-dom";
 
-
-
 export default function LateNightRestaurants({restaurantData, handleClick}) {
 
   const convertClosingTime = (time) => {
