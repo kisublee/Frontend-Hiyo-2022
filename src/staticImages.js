@@ -7,8 +7,6 @@ import thai from "./media/thai.png"
 import mexican from "./media/mexican.png"
 import korean from "./media/korean.png"
 
-
-
 const imageOfRestaurants = {
    "McDonald's": mc, 
    "Roberta's Pizza": pizza, 

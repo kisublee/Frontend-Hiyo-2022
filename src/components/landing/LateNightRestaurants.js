@@ -60,7 +60,8 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                     letterSpacing: 1,
                     fontWeight: 900, 
                     textAlign:"left"
-                    }}>
+                    }}
+            >
                     Open Till Midnight for your late night food
             </Typography>
             <Typography  
@@ -92,11 +93,11 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
             {restaurantData && restaurantData.map((each, i) => {
                 if (convertClosingTime(each.closingTime) === 24) {
                     return (
-                        <Grid  key={each.id}>
+                        <Grid key={each.id}>
                             <Link 
-                            to={`/restaurants/${each.id}`}
-                            style={{textDecoration:"none"}}
-                            key={each.id}
+                                to={`/restaurants/${each.id}`}
+                                style={{textDecoration:"none"}}
+                                key={each.id}
                              >
                                 <Card sx={{ 
                                     width: "37.3vh", 
@@ -107,20 +108,20 @@ export default function LateNightRestaurants({restaurantData, handleClick}) {
                                 }}}
                                 >
                                     <CardMedia
-                                    component="img"
-                                    alt="restaurant cover image"
-                                    height="140"
-                                    image={imageOfRestaurants[each.name] ? imageOfRestaurants[each.name] : noImage}
+                                        component="img"
+                                        alt="restaurant cover image"
+                                        height="140"
+                                        image={imageOfRestaurants[each.name] ? imageOfRestaurants[each.name] : noImage}
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h6">
                                             {each.name.length > 15 ? each.name.slice(0,16) +"...": each.name}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
-                                        {each.cuisine} · {each.price} · {each.location}
+                                            {each.cuisine} · {each.price} · {each.location}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary" component={"span"}>
-                                        {checkDiningAvailability(each.diningRestriction)}
+                                            {checkDiningAvailability(each.diningRestriction)}
                                         </Typography>
                                     </CardContent>
                                     <CardActions>

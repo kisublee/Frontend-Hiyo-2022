@@ -23,9 +23,10 @@ export default function AvailableTimeTable(restaurant) {
     }
   );
 
-  const getDate = new Date().toLocaleDateString();
-  const formatDate = getDate.split("/").reverse().join("-")
-
+  const getDate = new Date().toISOString()
+  const formatDate = getDate.split("T")[0]
+  // "time": "2022-06-01 19:00:00
+console.log(getDate)
   const handleClickOpen = (e) => {
     setFormInput(
       {

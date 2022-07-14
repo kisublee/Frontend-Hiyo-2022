@@ -21,6 +21,9 @@ export default function ReservationDialog({
   setOpenSnackBar
 }) {
 
+
+  console.log(formInput)
+
   const API = process.env.REACT_APP_API_URL;
   
   useEffect(() => {
