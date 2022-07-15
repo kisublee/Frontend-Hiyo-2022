@@ -77,7 +77,7 @@ export default function EditReservation({
               margin="dense"
               id="phoneNumber"
               label="phone number"
-              value={reservationDetail.phoneNumber}
+              value={input.phoneNumber}
               type="text"
               fullWidth
               variant="standard"
