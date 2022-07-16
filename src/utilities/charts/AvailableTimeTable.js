@@ -5,6 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 //Importing components
 import ReservationDialog from '../dialogs/ReservationDialog';
+import { AssignmentReturnRounded } from '@mui/icons-material';
 
 export default function AvailableTimeTable(restaurant) {
 
@@ -25,8 +26,7 @@ export default function AvailableTimeTable(restaurant) {
 
   const getDate = new Date().toISOString()
   const formatDate = getDate.split("T")[0]
-  // "time": "2022-06-01 19:00:00
-console.log(getDate)
+
   const handleClickOpen = (e) => {
     setFormInput(
       {
@@ -38,7 +38,7 @@ console.log(getDate)
           :
           e.target.value.substring(0,4)}:00`
       })
-    setOpen(true);
+    setOpen(true); 
   };
 
   const Alert = React.forwardRef(function Alert(props, ref) {
@@ -80,6 +80,17 @@ console.log(getDate)
             }
         }
     }
+
+    console.log(tableList)
+
+    // Iterate through the array called tableList which contains time slots of each restaurant
+    // IF there are time slots that fall into our definition of lunch time, 
+      // Render them
+
+    let timeTableColor = "blue"
+  
+
+
     return tableList && tableList.map((time, i) => {
         return (
             restaurant.reservations[0] !== null && restaurant.reservations.find((target) => {
@@ -88,17 +99,27 @@ console.log(getDate)
               const formatTargetTime = getTime.substring(0,5);
               const compareTime = time && time.substring(0,5);
               let checkTable = ""
-              
-              if (target.numGuests === 8) {
-                 checkTable = "eightPersonTables"
-              } else if (target.numGuests === 4) {
-                checkTable = "fourPersonTables"
-              } else if (target.numGuests === 2) {
-                checkTable = "twoPersonTables"
-              };
-              if ((formatTargetTime === compareTime) && restaurant.tables[checkTable] === 0) {
-                return true
-              };
+
+              let splitTime = time.substring(0,2) //  expecting "11"
+              console.log(time.substring(0,2))
+              if (splitTime === "11" || splitTime  ===  "12" || splitTime  ===  "13" || splitTime  ===  "14"|| splitTime  ===  "15" ) {
+                timeTableColor = "#FF6D14"
+              } else if (splitTime === "17" || splitTime === "18" || splitTime === "19" || splitTime === "20" || splitTime === "21" ) {
+                timeTableColor = "#311D4B"
+              }
+              else {
+                timeTableColor = "#2873FF"
+              }
+                if (target.numGuests === 8) {
+                   checkTable = "eightPersonTables"
+                } else if (target.numGuests === 4) {
+                  checkTable = "fourPersonTables"
+                } else if (target.numGuests === 2) {
+                  checkTable = "twoPersonTables"
+                };
+                if ((formatTargetTime === compareTime) && restaurant.tables[checkTable] === 0) {
+                  return true
+                };            
             }) ?
             <>
               <Button variant="contained" 
@@ -132,7 +153,7 @@ console.log(getDate)
                   onClick={(e) => handleClickOpen(e)}
                   value={time}
                   sx={{
-                      backgroundColor:"#1778CD", 
+                      backgroundColor:`${timeTableColor}`, 
                       color:"white",
                       width:"12vh",
                       m:0.3,

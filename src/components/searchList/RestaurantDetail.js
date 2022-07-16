@@ -100,7 +100,9 @@ export default function RestaurantDetail() {
                       </CardContent>
 
                       <Divider  sx={{mt:1, borderBottomWidth: 5, backgroundColor:"#6AA5FF"}}/>
-
+                      <Typography variant='subtitle2' sx={{mt:2, ml:2}}>
+                        * Lunch Time: Orange | Dinner Time: Dark Blue
+                     </Typography>
                       <Box sx={{mt:3, display:"flex", ml:4}}>
                         <Grid container spacing={2}>
                           {/* <Grid item lg={1}> */}
